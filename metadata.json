@@ -1,0 +1,5 @@
+{
+  "name": "Cognitive Dual Test",
+  "description": "A web application to conduct a psychological study for a bachelor's thesis to assess working memory and attention span through a Digit Span test and a Memory Reproduction Accuracy test.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cognitive Dual Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+<style>
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  .animate-fade-in-out {
+    animation: fadeInOut 1s ease-in-out;
+  }
+  @keyframes blinking-accelerate {
+    0%   { opacity: 0; transform: scale(0.95); }
+    20%  { opacity: 1; transform: scale(1.05); }
+    40%  { opacity: 0; transform: scale(0.95); }
+    55%  { opacity: 1; transform: scale(1.02); }
+    70%  { opacity: 0; transform: scale(0.95); }
+    80%  { opacity: 1; transform: scale(1.01); }
+    90%  { opacity: 0; transform: scale(0.95); }
+    95%  { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; }
+  }
+  .animate-blinking-accelerate {
+    animation: blinking-accelerate 3s ease-in-out;
+  }
+</style>
+</head>
+  <body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
