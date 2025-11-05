@@ -121,14 +121,16 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
         switch (phase) {
             case 'instruction':
                 return (
-                    <div className="text-center max-w-xl mx-auto">
-                        <p className="mb-10 text-lg text-slate-700 leading-relaxed">{content.instruction}</p>
+                    <div className="text-center max-w-3xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight mb-2">{content.title}</h2>
+                        <h3 className="text-lg md:text-xl text-slate-500 mb-8">{content.subtitle}</h3>
+                        <p className="mb-10 text-base md:text-lg text-slate-600 leading-relaxed bg-slate-100 p-6 rounded-lg">{content.instruction}</p>
                         <Button onClick={() => startTrial()}>{commonContent.readyButton}</Button>
                     </div>
                 );
             case 'getReady':
                  return (
-                    <div className="text-4xl font-bold text-slate-700 h-64 w-64 flex items-center justify-center bg-slate-100 rounded-lg shadow-inner animate-blinking-accelerate">
+                    <div className="text-5xl font-bold text-slate-700 h-64 w-64 flex items-center justify-center bg-slate-100 rounded-lg shadow-inner animate-blinking-accelerate">
                         {commonContent.beReady}
                     </div>
                 );
@@ -162,10 +164,9 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
             case 'feedback':
                 return (
                     <div className="text-center">
-                        <p className={`text-3xl font-bold mb-4 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                        <p className={`text-4xl font-bold mb-4 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
                             {isCorrect ? commonContent.correct : commonContent.incorrect}
                         </p>
-                        {isCorrect && <p className="text-lg text-slate-500 mb-6"> {content.currentLength} {currentLength + 1}</p>}
                         {!isCorrect && mistakesAtLength === 1 && <p className="text-lg text-slate-500 mb-6">{commonContent.tryAgain}</p>}
                         <Button onClick={handleNext}>{commonContent.nextButton}</Button>
                     </div>
@@ -174,9 +175,15 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
     };
 
     return (
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full animate-fade-in">
-            <p className="text-center text-slate-500 mb-8">{content.currentLength} {currentLength}</p>
-            <div className="min-h-[200px] flex items-center justify-center">
+        <div className="bg-white p-12 rounded-lg shadow-lg w-full animate-fade-in">
+            <div className="text-center text-slate-500 mb-8 h-6">
+                {phase !== 'instruction' ? (
+                    <p className="animate-fade-in">{content.currentLength} {currentLength}</p>
+                 ) : (
+                    <p>&nbsp;</p> // Placeholder to prevent layout shift
+                 )}
+            </div>
+            <div className="min-h-[250px] flex items-center justify-center">
                 {renderContent()}
             </div>
         </div>

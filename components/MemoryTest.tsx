@@ -44,25 +44,25 @@ const ImageDisplay: React.FC<{ imageUrl: string, duration: number, onTimeUp: () 
         <div className="flex flex-col items-center animate-fade-in w-full">
              <p className="text-lg text-slate-600 mb-4">{isRevealed ? content.imageInstruction : (language === 'lv' ? 'Noklikšķiniet uz attēla, lai sāktu' : 'Нажмите на изображение, чтобы начать')}</p>
             <div 
-                className="relative w-full max-w-4xl h-[600px] bg-slate-100 rounded-lg shadow-inner mb-4 flex items-center justify-center overflow-hidden cursor-pointer"
+                className="relative w-full max-w-4xl h-[600px] bg-slate-200 rounded-lg shadow-inner mb-4 flex items-center justify-center overflow-hidden cursor-pointer group"
                 onClick={!isRevealed ? handleReveal : undefined}
             >
                 <img 
                     src={imageUrl} 
                     alt="Test stimulus" 
-                    className={`max-w-full max-h-full object-contain transition-all duration-500 ${isRevealed ? 'blur-none' : 'blur-2xl'}`} 
+                    className={`max-w-full max-h-full object-contain transition-all duration-500 ${isRevealed ? 'blur-none' : 'blur-2xl group-hover:blur-xl'}`} 
                 />
                 {!isRevealed && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-                        <div className="text-white text-2xl font-bold p-4 bg-black bg-opacity-50 rounded-lg">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 transition-colors group-hover:bg-opacity-50">
+                        <div className="text-white text-3xl font-bold p-4 bg-black bg-opacity-50 rounded-lg">
                             {language === 'lv' ? 'Sākt skatīšanos' : 'Начать просмотр'}
                         </div>
                     </div>
                 )}
             </div>
             {isRevealed && (
-                <div className="text-2xl font-semibold p-3 bg-slate-200 rounded-md animate-fade-in">
-                    {content.timerLabel} <span className="font-mono text-3xl">{timeLeft}s</span>
+                <div className="text-2xl font-semibold p-3 bg-white border rounded-md animate-fade-in">
+                    {content.timerLabel} <span className="font-mono text-3xl text-blue-600">{timeLeft}s</span>
                 </div>
             )}
         </div>
@@ -98,14 +98,14 @@ const MemoryTest: React.FC<MemoryTestProps> = ({ onComplete, content, commonCont
         switch (phase) {
             case 'instruction':
                 return (
-                    <div className="text-center p-10 bg-white rounded-lg shadow-xl animate-fade-in">
-                        <p className="text-slate-500 mb-8 text-lg">({language === 'lv' ? 'Attēls' : 'Изображение'} {currentImageIndex + 1}/{IMAGES.length})</p>
-                        <p className="text-lg mb-10 max-w-2xl mx-auto text-slate-700 leading-relaxed">{content.instructionText}</p>
+                    <div className="text-center p-12 bg-white rounded-lg shadow-xl animate-fade-in">
+                        <p className="text-slate-500 mb-8 text-lg font-medium">({language === 'lv' ? 'Attēls' : 'Изображение'} {currentImageIndex + 1}/{IMAGES.length})</p>
+                        <p className="text-lg mb-10 max-w-3xl mx-auto text-slate-600 leading-relaxed">{content.instructionText}</p>
                         <Button onClick={handleStartImageDisplay}>{commonContent.readyButton}</Button>
                     </div>
                 );
             case 'image':
-                return <ImageDisplay imageUrl={IMAGES[currentImageIndex].url} duration={30} onTimeUp={handleTimeUp} content={content} language={language} />;
+                return <ImageDisplay imageUrl={IMAGES[currentImageIndex].url} duration={2} onTimeUp={handleTimeUp} content={content} language={language} />;
             case 'quiz':
                 return <Quiz imageIndex={currentImageIndex} onQuizComplete={handleQuizComplete} content={content} commonContent={commonContent} language={language} />;
         }

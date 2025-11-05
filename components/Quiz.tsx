@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { QuizAnswer } from '../types';
 import { QUIZ_DATA } from '../constants';
@@ -25,7 +24,7 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
     const [selectedConfidence, setSelectedConfidence] = useState<number | null>(null);
     const lang = language;
 
-    const questionsForImage = QUIZ_DATA[imageIndex];
+    const questionsForImage = QUIZ_DATA[imageIndex].questions;
     const currentQuestion = questionsForImage[currentQuestionIndex];
     
     const handleNextQuestion = () => {
@@ -54,16 +53,16 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
     };
     
     return (
-        <div className="p-8 bg-white rounded-lg shadow-lg w-full max-w-3xl mx-auto animate-fade-in">
-            <div className="text-right text-slate-500 mb-4">{content.questionProgress} {currentQuestionIndex + 1} {content.of} {questionsForImage.length}</div>
-            <h2 className="text-2xl font-semibold mb-6 text-slate-700 min-h-[56px] flex items-center">{currentQuestion[lang].q}</h2>
+        <div className="p-10 bg-white rounded-lg shadow-lg w-full max-w-3xl mx-auto animate-fade-in">
+            <div className="text-right text-slate-500 mb-6">{content.questionProgress} {currentQuestionIndex + 1} {content.of} {questionsForImage.length}</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 min-h-[56px] flex items-center">{currentQuestion[lang]}</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                {currentQuestion[lang].a.map((option, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                {currentQuestion.options[lang].map((option, index) => (
                     <button 
                         key={index}
                         onClick={() => setSelectedAnswer(index)}
-                        className={`p-4 rounded-lg border-2 text-left transition-transform transform hover:scale-105 ${selectedAnswer === index ? 'bg-blue-500 text-white border-blue-500' : 'bg-white hover:bg-blue-50 border-slate-300'}`}
+                        className={`p-4 rounded-lg border-2 text-left transition-all transform hover:scale-105 text-lg ${selectedAnswer === index ? 'bg-blue-600 text-white border-blue-600 ring-2 ring-blue-300' : 'bg-white text-slate-700 hover:bg-blue-50 border-slate-300'}`}
                     >
                         {option}
                     </button>
@@ -71,13 +70,13 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
             </div>
 
             <div className={`mt-8 transition-opacity duration-500 ease-in-out ${selectedAnswer !== null ? 'opacity-100' : 'opacity-0 invisible'}`}>
-                <h3 className="text-xl font-semibold mb-4 text-slate-700">{content.confidenceQuestion}</h3>
-                    <div className="flex flex-col sm:flex-row justify-center gap-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-slate-700">{content.confidenceQuestion}</h3>
+                    <div className="flex flex-col sm:flex-row justify-center gap-3">
                     {content.confidenceOptions.map((option, index) => (
                         <button
                             key={index}
                             onClick={() => setSelectedConfidence(index)}
-                            className={`flex-1 p-3 rounded-lg border-2 text-center transition-colors ${selectedConfidence === index ? 'bg-green-500 text-white border-green-500' : 'bg-white hover:bg-green-50 border-slate-300'}`}
+                            className={`flex-1 p-3 rounded-lg border-2 text-center transition-colors text-base ${selectedConfidence === index ? 'bg-green-600 text-white border-green-600 ring-2 ring-green-300' : 'bg-white text-slate-700 hover:bg-green-50 border-slate-300'}`}
                         >
                             {option}
                         </button>
@@ -85,7 +84,7 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
                 </div>
             </div>
             
-            <div className="text-center mt-10">
+            <div className="text-center mt-12">
                 <Button onClick={handleNextQuestion} disabled={selectedAnswer === null || selectedConfidence === null}>
                     {commonContent.nextButton}
                 </Button>

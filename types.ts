@@ -9,6 +9,12 @@ export enum TestState {
 
 export type Language = 'lv' | 'ru';
 
+export interface UserInfo {
+    age: number;
+    gender: string;
+    email: string;
+}
+
 export interface DigitSpanTrial {
     length: number;
     sequence: number[];

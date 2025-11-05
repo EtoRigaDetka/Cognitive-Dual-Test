@@ -1,7 +1,7 @@
 // This service sends data to a Google Apps Script Web App.
 // You need to deploy the Apps Script and paste the generated URL here.
 // Follow the instructions provided to set this up.
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5C-MtNfa6CQFEHeMnP_T4AtgMfBlwEpcV1vcWE40qIPV4Gk-1XWLTitm6bgBkM9ThcQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNLW8vocdwFEX7HygnbSrTlKtNL9aotXpPTthZdJiUrOSwIf828pmX5Kgdsb_6h4evdA/exec';
 
 export const saveResults = async (data: any): Promise<void> => {
     console.log("Attempting to save the following data to Google Sheets:", data);
@@ -14,8 +14,9 @@ export const saveResults = async (data: any): Promise<void> => {
             method: 'POST',
             mode: 'no-cors', 
             headers: {
-                'Content-Type': 'text/plain;charset=utf-8',
+                'Content-Type': 'text/plain',
             },
+            redirect: 'follow', // Explicitly follow redirects
             body: JSON.stringify(data),
         });
 

@@ -8,14 +8,14 @@ interface TestProgressProps {
 
 const progressContent = {
     ru: {
-        [TestState.DigitSpanForward]: 'Часть 1/2: Запоминание цифр (Прямой порядок)',
-        [TestState.DigitSpanBackward]: 'Часть 1/2: Запоминание цифр (Обратный порядок)',
-        [TestState.MemoryTest]: 'Часть 2/2: Точность воспроизведения памяти',
+        [TestState.DigitSpanForward]: 'Часть 1: Запоминание цифр (Прямой порядок)',
+        [TestState.DigitSpanBackward]: 'Часть 2: Запоминание цифр (Обратный порядок)',
+        [TestState.MemoryTest]: 'Часть 3: Точность воспроизведения памяти',
     },
     lv: {
-        [TestState.DigitSpanForward]: '1./2. daļa: Ciparu iegaumēšana (Tiešā secība)',
-        [TestState.DigitSpanBackward]: '1./2. daļa: Ciparu iegaumēšana (Apgrieztā secība)',
-        [TestState.MemoryTest]: '2./2. daļa: Atmiņas atveidošanas precizitāte',
+        [TestState.DigitSpanForward]: '1. daļa: Ciparu iegaumēšana (Tiešā secība)',
+        [TestState.DigitSpanBackward]: '2. daļa: Ciparu iegaumēšana (Apgrieztā secība)',
+        [TestState.MemoryTest]: '3. daļa: Atmiņas atveidošanas precizitāte',
     }
 };
 
@@ -29,12 +29,13 @@ const TestProgress: React.FC<TestProgressProps> = ({ testState, language }) => {
         return null;
     }
     
-    const text = progressContent[language][testState];
+    // Quick fix for the key, as TS doesn't know MemoryTest is a valid key without more complex typing
+    const text = progressContent[language][testState as keyof typeof progressContent.lv];
 
     return (
         <div className="w-full max-w-5xl mb-4 text-center animate-fade-in">
             <div className="inline-block bg-white py-2 px-6 rounded-lg shadow-md border border-slate-200">
-                <p className="text-lg font-semibold text-slate-700">{text}</p>
+                <p className="text-base font-medium text-slate-600">{text}</p>
             </div>
         </div>
     );

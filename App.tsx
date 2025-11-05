@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { TestState, Language, DigitSpanResult, QuizAnswer } from './types';
+import { TestState, Language, DigitSpanResult, QuizAnswer, UserInfo } from './types';
 import { content } from './constants';
 import WelcomeScreen from './components/WelcomeScreen';
 import DigitSpanTest from './components/DigitSpanTest';
@@ -14,11 +14,13 @@ const App: React.FC = () => {
     const [testState, setTestState] = useState<TestState>(TestState.Welcome);
     const [language, setLanguage] = useState<Language>('lv');
     
+    const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
     const [forwardResult, setForwardResult] = useState<DigitSpanResult | null>(null);
     const [backwardResult, setBackwardResult] = useState<DigitSpanResult | null>(null);
     const [quizResult, setQuizResult] = useState<QuizAnswer[] | null>(null);
 
-    const handleStart = useCallback(() => {
+    const handleStart = useCallback((info: UserInfo) => {
+        setUserInfo(info);
         setTestState(TestState.DigitSpanForward);
     }, []);
 
@@ -37,51 +39,52 @@ const App: React.FC = () => {
         setTestState(TestState.Final);
     }, []);
 
-    const handleFinalSubmit = useCallback(async (email: string) => {
-        if (!forwardResult || !backwardResult || !quizResult) {
-            console.error("Missing test results, cannot submit.");
-            alert(content[language].submissionError);
-            return;
+    const handleFinalSubmit = useCallback(async () => {
+        if (!forwardResult || !backwardResult || !quizResult || !userInfo) {
+            console.error("Missing test results or user info, cannot submit.");
+            throw new Error(content[language].submissionError);
         }
 
         const finalData = {
             timestamp: new Date().toISOString(),
-            email: email,
+            email: userInfo.email || '',
+            age: userInfo.age,
+            gender: userInfo.gender,
             forwardMax: forwardResult.maxLength,
             backwardMax: backwardResult.maxLength,
-            forwardTrials: forwardResult.trials,
-            backwardTrials: backwardResult.trials,
-            quiz: quizResult,
+            forwardTrials: JSON.stringify(forwardResult.trials),
+            backwardTrials: JSON.stringify(backwardResult.trials),
+            quiz: JSON.stringify(quizResult),
         };
 
         try {
             await saveResults(finalData);
-            alert(content[language].submissionSuccess);
         } catch (error) {
             console.error("Failed to save results:", error);
-            alert(content[language].submissionError);
+            // Re-throw the error so the UI component can handle it
+            throw error;
         }
-    }, [forwardResult, backwardResult, quizResult, language]);
+    }, [forwardResult, backwardResult, quizResult, userInfo, language]);
 
     const renderContent = () => {
         switch (testState) {
             case TestState.Welcome:
                 return <WelcomeScreen onStart={handleStart} content={content[language].welcome} />;
             case TestState.DigitSpanForward:
-                return <DigitSpanTest mode="forward" onComplete={handleForwardComplete} content={content[language].digitSpanForward} commonContent={content[language].common} />;
+                return <DigitSpanTest key="forward" mode="forward" onComplete={handleForwardComplete} content={content[language].digitSpanForward} commonContent={content[language].common} />;
             case TestState.DigitSpanBackward:
-                return <DigitSpanTest mode="backward" onComplete={handleBackwardComplete} content={content[language].digitSpanBackward} commonContent={content[language].common} />;
+                return <DigitSpanTest key="backward" mode="backward" onComplete={handleBackwardComplete} content={content[language].digitSpanBackward} commonContent={content[language].common} />;
             case TestState.MemoryTest:
                 return <MemoryTest onComplete={handleMemoryTestComplete} content={content[language].memoryTest} commonContent={content[language].common} language={language}/>;
             case TestState.Final:
-                return <FinalScreen onSubmit={handleFinalSubmit} content={content[language].final} />;
+                return <FinalScreen onSubmit={handleFinalSubmit} content={content[language].final} errorContent={content[language].submissionError} />;
             default:
                 return null;
         }
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 p-4 font-sans relative">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-100 p-4 relative">
             <div className="absolute top-4 right-4 z-10">
                 <LanguageSwitcher currentLang={language} setLang={setLanguage} />
             </div>
