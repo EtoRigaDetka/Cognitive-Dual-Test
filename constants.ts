@@ -22,27 +22,11 @@ export const QUIZ_DATA = [
         }
       },
       {
-        lv: "Kāds numurs bija uz basketbola krekla?",
-        ru: "Какой номер был на баскетбольной майке?",
-        options: {
-          lv: ["27", "72", "57", "52", "cits"],
-          ru: ["27", "72", "57", "52", "другое"]
-        }
-      },
-      {
         lv: "Kas stāvēja uz tējas galdiņa?",
         ru: "Что стояло на чайном столике?",
         options: {
           lv: ["krūze", "tējkanna", "ābols", "puķu pods", "cits"],
           ru: ["кружка", "чайник", "яблоко", "цветочный горшок", "другое"]
-        }
-      },
-      {
-        lv: "Kādā krāsā bija apavi?",
-        ru: "Какого цвета была обувь?",
-        options: {
-          lv: ["pelēka", "zila", "zaļa", "brūna", "cits"],
-          ru: ["серая", "синяя", "зеленая", "коричневая", "другое"]
         }
       },
       {
@@ -54,11 +38,27 @@ export const QUIZ_DATA = [
         }
       },
       {
+        lv: "Kāds numurs bija uz basketbola krekla?",
+        ru: "Какой номер был на баскетбольной майке?",
+        options: {
+          lv: ["27", "72", "57", "52", "cits"],
+          ru: ["27", "72", "57", "52", "другое"]
+        }
+      },
+      {
         lv: "Kurā kadra pusē atradās basketbola bumba?",
         ru: "С какой стороны кадра был баскетбольный мяч?",
         options: {
           lv: ["labajā", "kreisajā", "rokās","zem kājas", "cits"],
           ru: ["справа", "слева", "в руках","под ногой", "другое"]
+        }
+      },
+      {
+        lv: "Kādā krāsā bija apavi?",
+        ru: "Какого цвета была обувь?",
+        options: {
+          lv: ["pelēka", "zila", "zaļa", "brūna", "cits"],
+          ru: ["серая", "синяя", "зеленая", "коричневая", "другое"]
         }
       },
       {
@@ -168,27 +168,19 @@ export const QUIZ_DATA = [
         }
       },
       {
-        lv: "Cik koka galda kāju bija redzams attēlā?",
-        ru: "Сколько ножек деревянного стола было видно на изображении?",
-        options: {
-          lv: ["1", "2", "3", "4", "cits"],
-          ru: ["1", "2", "3", "4", "другое"]
-        }
-      },
-      {
-        lv: "Kādā krāsā grāmata?",
-        ru: "Какого цвета была книга?",
-        options: {
-          lv: ["zaļa", "sarkana", "dzeltena", "zila", "cits"],
-          ru: ["зеленая", "красная", "желтая", "синяя", "другое"]
-        }
-      },
-      {
         lv: "Kādā krāsā svece uz galda?",
         ru: "Какого цвета была свеча на столе?",
         options: {
           lv: ["dzeltena", "sarkana", "balta", "melna", "cits"],
           ru: ["желтая", "красная", "белая", "черная", "другое"]
+        }
+      },
+      {
+        lv: "Cik koka galda kāju bija redzams attēlā?",
+        ru: "Сколько ножек деревянного стола было видно на изображении?",
+        options: {
+          lv: ["1", "2", "3", "4", "cits"],
+          ru: ["1", "2", "3", "4", "другое"]
         }
       },
       {
@@ -205,6 +197,14 @@ export const QUIZ_DATA = [
         options: {
           lv: ["melna", "balta", "sarkana", "violeta", "cits"],
           ru: ["черная", "белая", "красная", "фиолетовая", "другое"]
+        }
+      },
+      {
+        lv: "Kādā krāsā grāmata?",
+        ru: "Какого цвета была книга?",
+        options: {
+          lv: ["zaļa", "sarkana", "dzeltena", "zila", "cits"],
+          ru: ["зеленая", "красная", "желтая", "синяя", "другое"]
         }
       },
       {
@@ -229,6 +229,14 @@ export const QUIZ_DATA = [
         }
       },
       {
+        lv: "Kādā krāsā kaklasaite?",
+        ru: "Какого цвета был галстук?",
+        options: {
+          lv: ["zila", "melna", "bordo", "pelēka", "cits"],
+          ru: ["синяя", "черная", "бордовая", "серая", "другое"]
+        }
+      },
+      {
         lv: "Kādā krāsā žurnāls?",
         ru: "Какого цвета был журнал?",
         options: {
@@ -245,6 +253,14 @@ export const QUIZ_DATA = [
         }
       },
       {
+        lv: "Kurā plauktā stāvēja globuss?",
+        ru: "На какой полке стоял глобус?",
+        options: {
+          lv: ["augšējā", "vidējā", "zemākajā", "cits"],
+          ru: ["на верхней", "на средней", "на нижней", "другое"]
+        }
+      },
+      {
         lv: "Kādā krāsā apavi?",
         ru: "Какого цвета была обувь?",
         options: {
@@ -252,14 +268,7 @@ export const QUIZ_DATA = [
           ru: ["черные", "белые", "серые", "зеленые", "другое"]
         }
       },
-      {
-        lv: "Kādā krāsā kaklasaite?",
-        ru: "Какого цвета был галстук?",
-        options: {
-          lv: ["zila", "melna", "bordo", "pelēka", "cits"],
-          ru: ["синяя", "черная", "бордовая", "серая", "другое"]
-        }
-      },
+
       {
         lv: "Kādā krāsā puķupods?",
         ru: "Какого цвета был цветочный горшок?",
@@ -268,14 +277,7 @@ export const QUIZ_DATA = [
           ru: ["черный", "белый", "зеленый", "серый", "другое"]
         }
       },
-      {
-        lv: "Kurā plauktā stāvēja globuss?",
-        ru: "На какой полке стоял глобус?",
-        options: {
-          lv: ["augšējā", "vidējā", "zemākajā", "cits"],
-          ru: ["на верхней", "на средней", "на нижней", "другое"]
-        }
-      },
+
       {
         lv: "Cik baltu pildspalvu bija pildspalvuturētājā?",
         ru: "Сколько белых ручек было в подставке?",
@@ -289,11 +291,19 @@ export const QUIZ_DATA = [
   {"image": "Attēls Nr.5",
     "questions": [
         {
-          lv: "Uz kura pirksta bija gredzens?",
-          ru: "На каком пальце было кольцо?",
+          lv: "Kādu laiku rādīja sienas pulkstenis?",
+          ru: "Которое время показывали настенные часы?",
           options: {
-            lv: ["rādītājpirksts", "vidējais pirksts", "zeltneša", "mazais pirksts", "cits"],
-            ru: ["указательный палец", "средний палец", "безымянный палец", "мизинец", "другое"]
+            lv: ["10:10", "9:10", "11:05", "11:10", "cits"],
+            ru: ["10:10", "9:10", "11:05", "11:10", "другое"]
+          }
+        },
+        {
+          lv: "Kāda mantiņa atradās uz galda?",
+          ru: "Какая игрушка находилась на столе?",
+          options: {
+            lv: ["globuss", "mašīna", "lidmašīna", "saulīte", "cits"],
+            ru: ["глобус", "машина", "самолёт", "солнышко", "другое"]
           }
         },
         {
@@ -305,11 +315,19 @@ export const QUIZ_DATA = [
           }
         },
         {
-          lv: "Kādu laiku rādīja sienas pulkstenis?",
-          ru: "Которое время показывали настенные часы?",
+          lv: "Uz kura pirksta bija gredzens?",
+          ru: "На каком пальце было кольцо?",
           options: {
-            lv: ["10:10", "9:10", "11:05", "11:10", "cits"],
-            ru: ["10:10", "9:10", "11:05", "11:10", "другое"]
+            lv: ["rādītājpirksts", "vidējais pirksts", "zeltneša", "mazais pirksts", "cits"],
+            ru: ["указательный палец", "средний палец", "безымянный палец", "мизинец", "другое"]
+          }
+        },
+        {
+          lv: "Uz kā bija apaļa emblēma?",
+          ru: "На чём была круглая эмблема?",
+          options: {
+            lv: ["dators", "džemperis", "bloknots", "krūze", "cits"],
+            ru: ["компьютер", "свитер", "блокнот", "кружка", "другое"]
           }
         },
         {
@@ -320,14 +338,7 @@ export const QUIZ_DATA = [
             ru: ["кружка", "пирожное", "яблоко", "персик", "другое"]
           }
         },
-        {
-          lv: "Kāda mantiņa atradās uz galda?",
-          ru: "Какая игрушка находилась на столе?",
-          options: {
-            lv: ["globuss", "mašīna", "lidmašīna", "saulīte", "cits"],
-            ru: ["глобус", "машина", "самолёт", "солнышко", "другое"]
-          }
-        },
+
         {
           lv: "Cik pogu uz džempera?",
           ru: "Сколько пуговиц было на свитере?",
@@ -342,14 +353,6 @@ export const QUIZ_DATA = [
           options: {
             lv: ["labajā", "kreisajā", "pa vidu", "cits"],
             ru: ["справа", "слева", "посередине", "другое"]
-          }
-        },
-        {
-          lv: "Uz kā bija apaļa emblēma?",
-          ru: "На чём была круглая эмблема?",
-          options: {
-            lv: ["dators", "džemperis", "bloknots", "krūze", "cits"],
-            ru: ["компьютер", "свитер", "блокнот", "кружка", "другое"]
           }
         }
     ]
