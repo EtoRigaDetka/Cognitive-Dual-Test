@@ -51,54 +51,46 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
     const [currentDigitIndex, setCurrentDigitIndex] = useState(0);
     const [userInput, setUserInput] = useState('');
     const [trialIndex, setTrialIndex] = useState(0);
-    const [mistakesAtLength, setMistakesAtLength] = useState(0);
+    const [consecutiveMistakes, setConsecutiveMistakes] = useState(0);
     const [trials, setTrials] = useState<DigitSpanTrial[]>([]);
     const [isCorrect, setIsCorrect] = useState(false);
+    const [isTestComplete, setIsTestComplete] = useState(false);
     
     const inputRef = useRef<HTMLInputElement>(null);
     const sequences = mode === 'forward' ? forwardSequences : backwardSequences;
     
-    const startTrial = useCallback(() => {
-        if (trialIndex >= sequences.length) {
-            // This case should be handled by handleSubmit, but as a safeguard:
-            const maxLength = trials.filter(t => t.correct).reduce((max, t) => Math.max(max, t.length), 0);
-            onComplete({ maxLength, trials });
+    const startTrial = useCallback((index: number) => {
+        if (index >= sequences.length) {
+            setIsTestComplete(true);
             return;
         }
-        const newSeq = sequences[trialIndex];
+        const newSeq = sequences[index];
         setSequence(newSeq);
         setUserInput('');
         setCurrentDigitIndex(0);
         setPhase('getReady');
-    }, [trialIndex, sequences, onComplete, trials]);
+    }, [sequences]);
 
     useEffect(() => {
+        if (isTestComplete || phase === 'instruction') return;
+
         if (phase === 'getReady') {
-            const timer = setTimeout(() => {
-                setPhase('delay');
-            }, 3000); // 3 second duration for "BE READY"
+            const timer = setTimeout(() => setPhase('delay'), 3000);
             return () => clearTimeout(timer);
         }
-
         if (phase === 'delay') {
-            const timer = setTimeout(() => {
-                setPhase('displaying');
-            }, 1000); // 1 second delay
+            const timer = setTimeout(() => setPhase('displaying'), 1000);
             return () => clearTimeout(timer);
         }
-
         if (phase === 'displaying' && currentDigitIndex < sequence.length) {
-            const timer = setTimeout(() => {
-                setCurrentDigitIndex(prev => prev + 1);
-            }, 1000); // 1 sec display
-            return () => clearTimeout(timer);
-        } else if (phase === 'displaying' && currentDigitIndex >= sequence.length) {
-            const timer = setTimeout(() => {
-                setPhase('input');
-            }, 500); // 0.5 sec pause after sequence
+            const timer = setTimeout(() => setCurrentDigitIndex(prev => prev + 1), 1000);
             return () => clearTimeout(timer);
         }
-    }, [phase, currentDigitIndex, sequence.length]);
+        if (phase === 'displaying' && currentDigitIndex >= sequence.length) {
+            const timer = setTimeout(() => setPhase('input'), 500);
+            return () => clearTimeout(timer);
+        }
+    }, [phase, currentDigitIndex, sequence.length, isTestComplete]);
     
     useEffect(() => {
         if (phase === 'input' && inputRef.current) {
@@ -106,64 +98,58 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
         }
     }, [phase]);
 
+    const completeTest = useCallback((finalTrials: DigitSpanTrial[]) => {
+        const maxLength = finalTrials.filter(t => t.correct).reduce((max, t) => Math.max(max, t.length), 0);
+        onComplete({ maxLength, trials: finalTrials });
+        setIsTestComplete(true);
+    }, [onComplete]);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         
         const currentSequence = sequences[trialIndex];
         const expectedAnswer = mode === 'forward' ? currentSequence.join('') : [...currentSequence].reverse().join('');
         const correct = userInput === expectedAnswer;
+
         const newTrial: DigitSpanTrial = { length: currentSequence.length, sequence: currentSequence, response: userInput, correct };
         const updatedTrials = [...trials, newTrial];
-
         setTrials(updatedTrials);
         setIsCorrect(correct);
-        setPhase('feedback');
         
         if (correct) {
-            setMistakesAtLength(0);
+            setConsecutiveMistakes(0);
             if (trialIndex + 1 >= sequences.length) {
-                // Completed all trials successfully
-                const maxLength = updatedTrials.filter(t => t.correct).reduce((max, t) => Math.max(max, t.length), 0);
-                onComplete({ maxLength, trials: updatedTrials });
-            } else {
-                setTrialIndex(prev => prev + 1);
+                completeTest(updatedTrials);
             }
         } else {
-            if (mistakesAtLength === 1) {
-                // Second mistake at this length, end the test
-                const maxLength = updatedTrials.filter(t => t.correct).reduce((max, t) => Math.max(max, t.length), 0);
-                onComplete({ maxLength, trials: updatedTrials });
-            } else {
-                setMistakesAtLength(1);
-                // Stay at the same trialIndex to repeat a sequence of the same length
-                // Note: With predefined sequences, this means the user will get a new, different sequence of the same length (if available)
-                // or the test ends if there are no more sequences of this length.
-                // For this implementation, we will simply try the next sequence in the list.
+            const newMistakeCount = consecutiveMistakes + 1;
+            setConsecutiveMistakes(newMistakeCount);
+            if (newMistakeCount >= 2) {
+                completeTest(updatedTrials);
             }
         }
+        
+        setPhase('feedback');
     };
 
     const handleNext = () => {
-       // If the previous answer was incorrect and it was the first mistake, we don't advance trialIndex.
-       // However, with fixed sequences, we must always advance to the next trial.
-       // The logic in handleSubmit already handles advancing or ending the test.
-       // This button just triggers the next state transition.
-        
-        // If the last answer was incorrect, and it was the first mistake for that length,
-        // we move to the next trial which should be of the same length. If not, the test ends.
-        // With the new fixed list, we just advance the index unless the test is over.
-        if (!isCorrect && mistakesAtLength === 1) {
-            // A mistake was made, but it's not the second one.
-            // We advance to the next trial in the list.
-            if(trialIndex + 1 >= sequences.length) {
-                 const maxLength = trials.filter(t => t.correct).reduce((max, t) => Math.max(max, t.length), 0);
-                 onComplete({ maxLength, trials });
-                 return;
-            }
-            setTrialIndex(prev => prev + 1);
-        }
+        if (isTestComplete) return;
 
-        startTrial();
+        if (isCorrect) {
+            const nextTrialIndex = trialIndex + 1;
+            setTrialIndex(nextTrialIndex);
+            startTrial(nextTrialIndex);
+        } else {
+            // It was an incorrect answer, but not the second one, so retry the same trial.
+            startTrial(trialIndex);
+        }
+    };
+
+    const handleStartFirstTrial = () => {
+        setTrialIndex(0);
+        setConsecutiveMistakes(0);
+        setTrials([]);
+        startTrial(0);
     }
     
     const renderContent = () => {
@@ -174,7 +160,7 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight mb-2">{content.title}</h2>
                         <h3 className="text-lg md:text-xl text-slate-500 mb-8">{content.subtitle}</h3>
                         <p className="mb-10 text-base md:text-lg text-slate-600 leading-relaxed bg-slate-100 p-6 rounded-lg">{content.instruction}</p>
-                        <Button onClick={() => startTrial()}>{commonContent.readyButton}</Button>
+                        <Button onClick={handleStartFirstTrial}>{commonContent.readyButton}</Button>
                     </div>
                 );
             case 'getReady':
@@ -211,56 +197,25 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
                     </form>
                 );
             case 'feedback':
-                 // The test might have ended after this trial
-                const isTestOver = (trialIndex +1 >= sequences.length && isCorrect) || (!isCorrect && mistakesAtLength === 1 && (trialIndex + 1 >= sequences.length || sequences[trialIndex+1].length > sequences[trialIndex].length));
-                // Simplified end condition check for fixed list
-                const testEnded = (trialIndex >= sequences.length) || (!isCorrect && mistakesAtLength === 1);
-
-
-                // Let's refine the logic to check if the test *should* end.
-                const nextTrialIndex = isCorrect ? trialIndex + 1 : trialIndex + 1; // Always advance after feedback
-                const isFinished = nextTrialIndex >= sequences.length || (!isCorrect && mistakesAtLength === 1);
-
-
-                // Check if the test is over based on the last trial result
-                const wasLastTrialFinal = 
-                    (isCorrect && trialIndex === sequences.length - 1) || // Last trial correct
-                    (!isCorrect && mistakesAtLength === 1); // Second mistake
-
-                // Let's re-evaluate termination condition within feedback
-                let isComplete = false;
-                if(isCorrect && trialIndex === sequences.length - 1) {
-                    isComplete = true; // Last one correct
-                } else if (!isCorrect && mistakesAtLength === 1) {
-                    // Check if the *next* sequence has a different length. If so, two mistakes on the same length means termination.
-                    // With a fixed list, we can simplify: two mistakes in a row on sequences of the same length.
-                    // The logic in handleSubmit already calls onComplete. Here we just decide whether to show the "Next" button.
-                    const lastTrial = trials[trials.length - 1];
-                    const secondToLastTrial = trials.length > 1 ? trials[trials.length - 2] : null;
-
-                    if (!lastTrial.correct && secondToLastTrial && !secondToLastTrial.correct && secondToLastTrial.length === lastTrial.length) {
-                       isComplete = true;
-                    }
-                }
-
-
                 return (
                     <div className="text-center">
                         <p className={`text-4xl font-bold mb-4 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
                             {isCorrect ? commonContent.correct : commonContent.incorrect}
                         </p>
-                        {/* The check for test completion is handled by onComplete, so we always show Next unless it's the very last trial */}
-                        {<Button onClick={handleNext}>{commonContent.nextButton}</Button>}
+                        {!isCorrect && consecutiveMistakes < 2 && !isTestComplete && <p className="text-slate-500 mb-4">{commonContent.tryAgain}</p>}
+                        {!isTestComplete && <Button onClick={handleNext}>{commonContent.nextButton}</Button>}
                     </div>
                 );
         }
     };
 
+    const currentSequenceForDisplay = sequences[trialIndex];
+
     return (
         <div className="bg-white p-12 rounded-lg shadow-lg w-full animate-fade-in">
             <div className="text-center text-slate-500 mb-8 h-6">
-                {phase !== 'instruction' && sequences[trialIndex] ? (
-                    <p className="animate-fade-in">{content.currentLength} {sequences[trialIndex].length}</p>
+                {phase !== 'instruction' && currentSequenceForDisplay ? (
+                    <p className="animate-fade-in">{content.currentLength} {currentSequenceForDisplay.length}</p>
                  ) : (
                     <p>&nbsp;</p> // Placeholder to prevent layout shift
                  )}
