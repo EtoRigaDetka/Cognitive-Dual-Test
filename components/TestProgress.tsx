@@ -14,7 +14,7 @@ const progressContent = {
     },
     lv: {
         [TestState.DigitSpanForward]: '1. daļa: Ciparu iegaumēšana (Tiešā secība)',
-        [TestState.DigitSpanBackward]: '2. daļa: Ciparu iegaumēšana (Apgrieztā secība)',
+        [TestState.DigitSpanBackward]: '2. daļa: Ciparu iegaumēšana (Atgriezeniskā secībā)',
         [TestState.MemoryTest]: '3. daļa: Atmiņas atveidošanas precizitāte',
     }
 };

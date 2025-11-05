@@ -445,7 +445,7 @@ export const content = {
         },
         digitSpanBackward: {
             title: 'Ciparu iegaumēšana',
-            subtitle: 'Apgrieztā secība',
+            subtitle: 'Atgriezeniskā secībā secība',
             instruction: 'Ekrānā parādīsies cipari. Jūsu uzdevums ir ievadīt tos APGRIEZTĀ secībā. Piemēram, ja redzējāt 4-7-2, jums jāievada 274. Nospiediet "Gatavs", kad esat gatavs sākt.',
             currentLength: 'Pašreizējais ciparu skaits:',
         },
