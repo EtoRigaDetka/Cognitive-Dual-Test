@@ -424,7 +424,9 @@ export const content = {
             descriptions: [
                 'Laipni lūgti piedalīties psiholoģiskajā pētījumā, kas tiek veikts Daugavpils Universitātes studiju programmas “Psiholoģija” 3. kursa studentes Agitas Dzalbes bakalaura darba ietvaros.',
                 'Šī pētījuma mērķis ir noskaidrot, kā cilvēka darba atmiņa saistās ar spēju precīzi atcerēties informāciju un pārliecību par savām atmiņām.',
-                'Tests sastāv no divām daļām: 1. Darba atmiņas pārbaude – Jums būs jāiegaumē un jāatkārto ciparu virkne noteiktā secībā. 2. Attēlu tests – būs piedāvāti 5 attēli un pēc katra būs jāatbild uz jautājumiem par to saturu.',
+                'Tests sastāv no divām daļām:',
+                '1. Darba atmiņas pārbaude – Jums būs jāiegaumē un jāatkārto ciparu virkne noteiktā secībā. ',
+                '2. Attēlu tests – būs piedāvāti 5 attēli un pēc katra būs jāatbild uz jautājumiem par to saturu.',
                 'Ja Jūs interesē savas atmiņas īpatnības, Jums tiks piedāvāta iespēja atstāt savu e-pastu uz kuru tiks nosūtīta testa rezultāti.',
                 'Ja Jūs piekrītat piedalīties pētījumā, lūdzu, spiediet “Sākt testu”.'
             ],
