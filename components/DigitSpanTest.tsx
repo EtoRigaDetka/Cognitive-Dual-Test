@@ -4,25 +4,52 @@ import Button from './shared/Button';
 
 type TestPhase = 'instruction' | 'getReady' | 'delay' | 'displaying' | 'input' | 'feedback';
 
-// Predefined sequences
-const forwardSequences = [
-    [5, 8, 2],
-    [6, 4, 3, 9],
-    [4, 2, 7, 3, 1],
-    [6, 1, 9, 4, 7, 3],
-    [5, 9, 1, 7, 4, 2, 8],
-    [5, 8, 1, 9, 2, 6, 4, 7],
-    [2, 7, 5, 3, 6, 2, 5, 8, 4]
-];
-
-const backwardSequences = [
-    [2, 4],
-    [6, 2, 9],
-    [3, 2, 7, 9],
-    [1, 5, 2, 8, 6],
-    [8, 1, 2, 9, 3, 9, 5],
-    [9, 4, 3, 7, 6, 2, 5, 8]
-];
+// Predefined sequences with two versions for each mode
+const sequenceVersions = {
+    forward: [
+        // Version 1 (Primary)
+        [
+            [5, 8, 2],
+            [6, 4, 3, 9],
+            [4, 2, 7, 3, 1],
+            [6, 1, 9, 4, 7, 3],
+            [5, 9, 1, 7, 4, 2, 8],
+            [5, 8, 1, 9, 2, 6, 4, 7],
+            [2, 7, 5, 3, 6, 2, 5, 8, 4]
+        ],
+        // Version 2 (Alternate)
+        [
+            [6, 9, 4],
+            [7, 2, 8, 4],
+            [7, 5, 8, 3, 6],
+            [3, 9, 2, 4, 8, 7],
+            [4, 1, 7, 9, 3, 8, 6],
+            [3, 8, 2, 9, 5, 1, 7, 4],
+            [3, 9, 4, 2, 5, 6, 8, 9]
+        ]
+    ],
+    backward: [
+        // Version 1 (Primary)
+        [
+            [2, 4],
+            [6, 2, 9],
+            [3, 2, 7, 9],
+            [1, 5, 2, 8, 6],
+            [8, 1, 2, 9, 3, 9, 5],
+            [9, 4, 3, 7, 6, 2, 5, 8]
+        ],
+        // Version 2 (Alternate)
+        [
+            [5, 8],
+            [4, 1, 5],
+            [4, 9, 6, 8],
+            [6, 1, 8, 4, 3],
+            [7, 2, 4, 8, 5, 6],
+            [7, 2, 8, 1, 9, 6, 5],
+            [4, 7, 3, 9, 1, 9, 8, 2]
+        ]
+    ]
+};
 
 
 interface DigitSpanTestProps {
@@ -51,25 +78,27 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
     const [currentDigitIndex, setCurrentDigitIndex] = useState(0);
     const [userInput, setUserInput] = useState('');
     const [trialIndex, setTrialIndex] = useState(0);
+    const [sequenceVersion, setSequenceVersion] = useState(0); // 0 for primary, 1 for alternate
     const [consecutiveMistakes, setConsecutiveMistakes] = useState(0);
     const [trials, setTrials] = useState<DigitSpanTrial[]>([]);
     const [isCorrect, setIsCorrect] = useState(false);
     const [isTestComplete, setIsTestComplete] = useState(false);
     
     const inputRef = useRef<HTMLInputElement>(null);
-    const sequences = mode === 'forward' ? forwardSequences : backwardSequences;
+    const sequencesForMode = sequenceVersions[mode];
     
     const startTrial = useCallback((index: number) => {
-        if (index >= sequences.length) {
+        if (index >= sequencesForMode[0].length) {
             setIsTestComplete(true);
             return;
         }
-        const newSeq = sequences[index];
+        // Use the current sequence version
+        const newSeq = sequencesForMode[sequenceVersion][index];
         setSequence(newSeq);
         setUserInput('');
         setCurrentDigitIndex(0);
         setPhase('getReady');
-    }, [sequences]);
+    }, [sequencesForMode, sequenceVersion]);
 
     useEffect(() => {
         if (isTestComplete || phase === 'instruction') return;
@@ -107,7 +136,7 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         
-        const currentSequence = sequences[trialIndex];
+        const currentSequence = sequencesForMode[sequenceVersion][trialIndex];
         const expectedAnswer = mode === 'forward' ? currentSequence.join('') : [...currentSequence].reverse().join('');
         const correct = userInput === expectedAnswer;
 
@@ -118,10 +147,13 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
         
         if (correct) {
             setConsecutiveMistakes(0);
-            if (trialIndex + 1 >= sequences.length) {
+            // If correct, stay on the same version for the next level
+            if (trialIndex + 1 >= sequencesForMode[0].length) {
                 completeTest(updatedTrials);
             }
         } else {
+            // On mistake, switch to the other sequence version for the next attempt
+            setSequenceVersion(prev => 1 - prev); // Toggles between 0 and 1
             const newMistakeCount = consecutiveMistakes + 1;
             setConsecutiveMistakes(newMistakeCount);
             if (newMistakeCount >= 2) {
@@ -140,13 +172,15 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
             setTrialIndex(nextTrialIndex);
             startTrial(nextTrialIndex);
         } else {
-            // It was an incorrect answer, but not the second one, so retry the same trial.
+            // It was an incorrect answer, but not the second one.
+            // Retry the same trial index, but startTrial will now use the new sequenceVersion.
             startTrial(trialIndex);
         }
     };
 
     const handleStartFirstTrial = () => {
         setTrialIndex(0);
+        setSequenceVersion(0);
         setConsecutiveMistakes(0);
         setTrials([]);
         startTrial(0);
@@ -209,7 +243,7 @@ const DigitSpanTest: React.FC<DigitSpanTestProps> = ({ mode, onComplete, content
         }
     };
 
-    const currentSequenceForDisplay = sequences[trialIndex];
+    const currentSequenceForDisplay = sequencesForMode[sequenceVersion][trialIndex];
 
     return (
         <div className="bg-white p-12 rounded-lg shadow-lg w-full animate-fade-in">

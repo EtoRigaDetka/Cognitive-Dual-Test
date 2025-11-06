@@ -8,14 +8,14 @@ interface TestProgressProps {
 
 const progressContent = {
     ru: {
-        [TestState.DigitSpanForward]: 'Часть 1: Запоминание цифр (Прямой порядок)',
-        [TestState.DigitSpanBackward]: 'Часть 2: Запоминание цифр (Обратный порядок)',
-        [TestState.MemoryTest]: 'Часть 3: Точность воспроизведения памяти',
+        [TestState.DigitSpanForward]: 'Часть 1: Запоминание цифр',
+        [TestState.DigitSpanBackward]: 'Часть 1: Запоминание цифр',
+        [TestState.MemoryTest]: 'Часть 2: Точность воспроизведения памяти',
     },
     lv: {
-        [TestState.DigitSpanForward]: '1. daļa: Ciparu iegaumēšana (Tiešā secība)',
-        [TestState.DigitSpanBackward]: '2. daļa: Ciparu iegaumēšana (Atgriezeniskā secībā)',
-        [TestState.MemoryTest]: '3. daļa: Atmiņas atveidošanas precizitāte',
+        [TestState.DigitSpanForward]: '1. daļa: Ciparu iegaumēšana',
+        [TestState.DigitSpanBackward]: '1. daļa: Ciparu iegaumēšana',
+        [TestState.MemoryTest]: '2. daļa: Atmiņas atveidošanas precizitāte',
     }
 };
 
@@ -29,7 +29,6 @@ const TestProgress: React.FC<TestProgressProps> = ({ testState, language }) => {
         return null;
     }
     
-    // Quick fix for the key, as TS doesn't know MemoryTest is a valid key without more complex typing
     const text = progressContent[language][testState as keyof typeof progressContent.lv];
 
     return (
