@@ -44,6 +44,7 @@ const App: React.FC = () => {
             throw new Error(content[language].submissionError);
         }
 
+        // Send raw data objects/arrays. The server-side script will handle stringification.
         const finalData = {
             timestamp: new Date().toISOString(),
             email: userInfo.email || '',
@@ -51,9 +52,9 @@ const App: React.FC = () => {
             gender: userInfo.gender,
             forwardMax: forwardResult.maxLength,
             backwardMax: backwardResult.maxLength,
-            forwardTrials: JSON.stringify(forwardResult.trials),
-            backwardTrials: JSON.stringify(backwardResult.trials),
-            quiz: JSON.stringify(quizResult),
+            forwardTrials: forwardResult.trials,
+            backwardTrials: backwardResult.trials,
+            quiz: quizResult,
         };
 
         try {
