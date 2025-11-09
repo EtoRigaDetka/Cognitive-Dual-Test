@@ -15,7 +15,7 @@ export const QUIZ_DATA = [
     questions: [
       {
         lv: "Kādā krāsā bija ģērbts t-krekls?",
-        ru: "Какого цвета была футболка?",
+        ru: "Какого цвета была футболка одета на девушке?",
         options: {
           lv: ["balts", "pelēks", "violets", "dzeltens", "cits"],
           ru: ["белый", "серый", "фиолетовый", "желтый", "другое"]
@@ -46,11 +46,11 @@ export const QUIZ_DATA = [
         }
       },
       {
-        lv: "Kurā kadra pusē atradās basketbola bumba?",
-        ru: "С какой стороны кадра был баскетбольный мяч?",
+        lv: "Kur atradās basketbola bumba?",
+        ru: "Где находился баскетбольный мяч?",
         options: {
-          lv: ["labajā", "kreisajā", "rokās","zem kājas", "cits"],
-          ru: ["справа", "слева", "в руках","под ногой", "другое"]
+          lv: ["kadra labajā pusē", "kadra kreisajā pusē", "sievietei zem kājas","sievietei rokās", "cits"],
+          ru: ["в правой части кадра", "в левой части кадра", "под ногой у женщины","в руках у женщины", "другое"]
         }
       },
       {
@@ -123,8 +123,8 @@ export const QUIZ_DATA = [
         }
       },
       {
-        lv: "Kādā krāsā lietussargs uz pakaramā?",
-        ru: "Какого цвета был зонт на вешалке?",
+        lv: "Kādā krāsā bija apavi uz vīrieša?",
+        ru: "Какого цвета была обувь на мужчине?",
         options: {
           lv: ["zaļš", "zils", "oranžs", "bordo", "cits"],
           ru: ["зеленый", "синий", "оранжевый", "бордовый", "другое"]
@@ -279,7 +279,7 @@ export const QUIZ_DATA = [
       },
 
       {
-        lv: "Cik baltu pildspalvu bija pildspalvuturētājā?",
+        lv: "Cik baltu pildspalvu bija pildspalvu  turētājā?",
         ru: "Сколько белых ручек было в подставке?",
         options: {
             lv: ["1", "2", "3", "neviena", "cits"],
@@ -299,8 +299,8 @@ export const QUIZ_DATA = [
           }
         },
         {
-          lv: "Kāda mantiņa atradās uz galda?",
-          ru: "Какая игрушка находилась на столе?",
+          lv: "Kāda figūriņa atradās uz galda?",
+          ru: "Какая фигурка находилась на столе?",
           options: {
             lv: ["globuss", "mašīna", "lidmašīna", "saulīte", "cits"],
             ru: ["глобус", "машина", "самолёт", "солнышко", "другое"]
@@ -310,15 +310,15 @@ export const QUIZ_DATA = [
           lv: "Kādā rokā ir ģērbts rokas pulkstenis?",
           ru: "На какой руке были наручные часы?",
           options: {
-            lv: ["labajā pusē", "kreisajā pusē", "cits"],
-            ru: ["с правой стороны", "с левой стороны", "другое"]
+            lv: ["labajā kadra pusē ", "kreisajā kadra pusē", "cits"],
+            ru: [" правой стороне кадра", "с левой стороны", "другое"]
           }
         },
         {
           lv: "Uz kura pirksta bija gredzens?",
           ru: "На каком пальце было кольцо?",
           options: {
-            lv: ["rādītājpirksts", "vidējais pirksts", "zeltneša", "mazais pirksts", "cits"],
+            lv: ["rādītājpirksts", "vidējais pirksts", "zeltneša pirksts", "mazais pirksts", "cits"],
             ru: ["указательный палец", "средний палец", "безымянный палец", "мизинец", "другое"]
           }
         },
@@ -362,14 +362,19 @@ export const QUIZ_DATA = [
 export const content = {
     ru: {
         welcome: {
-            title: 'Когнитивный Двойной Тест',
-            subtitle: 'Исследование «Точность воспроизведения памяти»',
+            title: 'Психологическое исследование',
+            subtitle: 'Тест “Воспроизведение воспоминаний и их точность”',
             descriptions: [
-                'Добро пожаловать в исследование, проводимое в рамках бакалаврской работы студентки 3-го курса программы «Психология» Даугавпилсского университета, Агиты Дзалбе.',
-                'Тест состоит из двух частей: тест на запоминание последовательности цифр и тест на запоминание деталей изображений. Пожалуйста, следуйте инструкциям на экране.',
+                'Добро пожаловать для участия в психологическом исследовании, которое проводится студенткой 3 курса программы “Психология” Даугавпилсского университета Агитой Дзалбе в рамках её бакалаврской работы.',
+                'Цель данного исследования — выяснить, как рабочая память человека связана со способностью точно воспроизводить информацию и уверенностью в своих воспоминаниях.',
+                'Тест состоит из двух частей:',
+                ' 1. Проверка рабочей памяти – вам нужно будет запомнить и воспроизвести последовательность чисел в определённом порядке.',
+                ' 2. Тест с изображениями – вам будут показаны 5 изображений, после каждого из которых нужно будет ответить на вопросы о его содержании.',
+                'Если вам интересно узнать особенности своей памяти, вы сможете оставить свой адрес электронной почты, на который будут отправлены результаты теста.',
+                'Если вы соглашаетесь принять участие в исследовании, пожалуйста, нажмите «Начать тест».'
             ],
             button: 'Начать тест',
-            formTitle: 'Пожалуйста, предоставьте некоторую информацию',
+            formTitle: 'Демографическая информация',
             ageLabel: 'Возраст',
             genderLabel: 'Пол',
             genderOptions: ['Мужской', 'Женский', 'Другой'],
@@ -378,15 +383,15 @@ export const content = {
             formButton: 'Продолжить'
         },
         digitSpanForward: {
-            title: 'Запоминание цифр',
-            subtitle: 'Прямой порядок',
-            instruction: 'На экране появятся цифры. Ваша задача — ввести их в том же порядке, в котором они появились. Нажмите "Готов", когда будете готовы начать.',
+            title: 'Запоминание чисел',
+            subtitle: 'Прямая последовательность',
+            instruction: 'На экране появится последовательность чисел. Ваша задача — ввести их в том же порядке, в каком они были показаны. Нажмите «Готово», когда будете готовы начать.',
             currentLength: 'Текущее количество цифр:',
         },
         digitSpanBackward: {
-            title: 'Запоминание цифр',
-            subtitle: 'Обратный порядок',
-            instruction: 'На экране появятся цифры. Ваша задача — ввести их в ОБРАТНОМ порядке. Например, если вы увидели 4-7-2, вам нужно ввести 274. Нажмите "Готов", когда будете готовы начать.',
+            title: 'Запоминание чисел',
+            subtitle: 'Обратная последовательность',
+            instruction: 'На экране появится последовательность чисел. Ваша задача — ввести числа в обратном порядке. Например, если вы видели 4–7–2, нужно ввести 2–7–4. Нажмите «Готово», когда будете готовы начать.',
             currentLength: 'Текущее количество цифр:',
         },
         memoryTest: {
@@ -401,9 +406,9 @@ export const content = {
             confidenceOptions: ['Полностью уверен', 'Больше уверен, чем неуверен', 'Больше неуверен, чем уверен', 'Неуверен'],
         },
         final: {
-            title: 'Отправте результат!',
+            title: 'Отправьте результат!',
             thankYou: 'Спасибо за участие в исследовании!',
-            submitButton: 'Завершить тест',
+            submitButton: 'ОТПРАВИТЬ',
         },
         common: {
             readyButton: 'Готов',
@@ -431,7 +436,7 @@ export const content = {
                 'Ja Jūs piekrītat piedalīties pētījumā, lūdzu, spiediet “Sākt testu”.'
             ],
             button: 'Sākt testu',
-            formTitle: 'Lūdzu, sniedziet nedaudz informācijas',
+            formTitle: 'Demogrāfiskā informācija',
             ageLabel: 'Vecums',
             genderLabel: 'Dzimums',
             genderOptions: ['Vīrietis', 'Sieviete', 'Cits'],
@@ -442,13 +447,13 @@ export const content = {
         digitSpanForward: {
             title: 'Ciparu iegaumēšana',
             subtitle: 'Tiešā secība',
-            instruction: 'Ekrānā parādīsies cipari. Jūsu uzdevums ir ievadīt tos tādā pašā secībā, kādā tie parādījās. Nospiediet "Gatavs", kad esat gatavs sākt.',
+            instruction: 'Ekrānā tiks parādīta ciparu virkne. Jūsu uzdevums ir ievadīt ciparus tieši tādā pašā secībā, kādā tie tika attēloti. Nospiediet “Gatavs”, kad esat gatavi sākt.',
             currentLength: 'Pašreizējais ciparu skaits:',
         },
         digitSpanBackward: {
             title: 'Ciparu iegaumēšana',
-            subtitle: 'Atgriezeniskā secībā secība',
-            instruction: 'Ekrānā parādīsies cipari. Jūsu uzdevums ir ievadīt tos APGRIEZTĀ secībā. Piemēram, ja redzējāt 4-7-2, jums jāievada 274. Nospiediet "Gatavs", kad esat gatavs sākt.',
+            subtitle: 'Atgriezeniskā secība',
+            instruction: 'Ekrānā tiks parādīta ciparu virkne. Jūsu uzdevums ir ievadīt ciparus atgriezeniskā secībā. Piemēram, ja redzējāt 4–7–2, jāievada 2–7–4. Nospiediet “Gatavs”, kad esat gatavi sākt.',
             currentLength: 'Pašreizējais ciparu skaits:',
         },
         memoryTest: {
@@ -463,9 +468,9 @@ export const content = {
             confidenceOptions: ['Pilnībā pārliecināts', 'Vairāk pārliecināts nekā neesmu', 'Vairāk neesmu pārliecināts nekā esmu', 'Nepārliecināts'],
         },
         final: {
-            title: 'Nosutiet rezultau!',
+            title: 'Nosūtiet rezultātu!',
             thankYou: 'Paldies par dalību pētījumā!',
-            submitButton: 'Pabeigt testu',
+            submitButton: 'NOSŪTĪT',
         },
         common: {
             readyButton: 'Gatavs',
