@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { TestState, Language, DigitSpanResult, QuizAnswer, UserInfo } from './types';
 import { content } from './constants';

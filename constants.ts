@@ -407,7 +407,9 @@ export const content = {
         },
         final: {
             title: 'Отправьте результат!',
-            thankYou: 'Спасибо за участие в исследовании!',
+            description: 'Вы завершили тест. Нажмите кнопку ниже, чтобы сохранить и отправить ваши результаты.',
+            thankYou: 'Спасибо!',
+            successDescription: 'Спасибо за участие! Ваши результаты были записаны.',
             submitButton: 'ОТПРАВИТЬ',
         },
         common: {
@@ -469,7 +471,9 @@ export const content = {
         },
         final: {
             title: 'Nosūtiet rezultātu!',
-            thankYou: 'Paldies par dalību pētījumā!',
+            description: 'Jūs esat pabeidzis testu. Nospiediet pogu zemāk, lai saglabātu un nosūtītu savus rezultātus.',
+            thankYou: 'Paldies!',
+            successDescription: 'Paldies par dalību! Jūsu rezultāti ir ierakstīti.',
             submitButton: 'NOSŪTĪT',
         },
         common: {

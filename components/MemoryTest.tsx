@@ -105,7 +105,7 @@ const MemoryTest: React.FC<MemoryTestProps> = ({ onComplete, content, commonCont
                     </div>
                 );
             case 'image':
-                return <ImageDisplay imageUrl={IMAGES[currentImageIndex].url} duration={30} onTimeUp={handleTimeUp} content={content} language={language} />;
+                return <ImageDisplay imageUrl={IMAGES[currentImageIndex].url} duration={1} onTimeUp={handleTimeUp} content={content} language={language} />;
             case 'quiz':
                 return <Quiz imageIndex={currentImageIndex} onQuizComplete={handleQuizComplete} content={content} commonContent={commonContent} language={language} />;
         }

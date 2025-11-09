@@ -5,7 +5,9 @@ interface FinalScreenProps {
     onSubmit: () => Promise<void>;
     content: {
         title: string;
+        description: string;
         thankYou: string;
+        successDescription: string;
         submitButton: string;
     };
     errorContent: string;
@@ -32,7 +34,7 @@ const FinalScreen: React.FC<FinalScreenProps> = ({ onSubmit, content, errorConte
         return (
             <div className="text-center bg-white p-12 rounded-lg shadow-xl animate-fade-in">
                 <h1 className="text-4xl font-bold text-green-600 mb-4">{content.thankYou}</h1>
-                <p className="text-slate-600 text-lg">Your results have been recorded.</p>
+                <p className="text-slate-600 text-lg">{content.successDescription}</p>
             </div>
         )
     }
@@ -52,7 +54,7 @@ const FinalScreen: React.FC<FinalScreenProps> = ({ onSubmit, content, errorConte
     return (
         <div className="text-center bg-white p-12 rounded-lg shadow-xl animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight mb-4">{content.title}</h1>
-            <p className="text-lg md:text-xl text-slate-600 mb-10">{content.thankYou}</p>
+            <p className="text-lg md:text-xl text-slate-600 mb-10">{content.description}</p>
             <div className="max-w-md mx-auto">
                 <Button onClick={handleSubmit} disabled={isSubmitting}>
                     {isSubmitting ? 'Submitting...' : content.submitButton}
