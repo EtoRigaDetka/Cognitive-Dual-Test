@@ -17,64 +17,156 @@ export const QUIZ_DATA = [
         lv: "Kādā krāsā bija ģērbts t-krekls?",
         ru: "Какого цвета была футболка одета на девушке?",
         options: {
-          lv: ["balts", "pelēks", "violets", "dzeltens", "cits"],
-          ru: ["белый", "серый", "фиолетовый", "желтый", "другое"]
+          lv: [
+            { text: "balts", feedback: "Super!" },
+            { text: "pelēks", feedback: "Paldies par atbildi." },
+            { text: "violets", feedback: "Paldies par atbildi." },
+            { text: "dzeltens", feedback: "Paldies par atbildi." },
+            { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+            { text: "белый", feedback: "Супер!" },
+            { text: "серый", feedback: "Спасибо за ответ." },
+            { text: "фиолетовый", feedback: "Спасибо за ответ." },
+            { text: "желтый", feedback: "Спасибо за ответ." },
+            { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kas stāvēja uz tējas galdiņa?",
         ru: "Что стояло на чайном столике?",
         options: {
-          lv: ["krūze", "tējkanna", "ābols", "puķu pods", "cits"],
-          ru: ["кружка", "чайник", "яблоко", "цветочный горшок", "другое"]
+          lv: [
+            { text: "krūze", feedback: "Atbilde reģistrēta." },
+            { text: "tējkanna", feedback: "Izcili!" },
+            { text: "ābols", feedback: "Atbilde reģistrēta." },
+            { text: "puķu pods", feedback: "Izcili!" },
+            { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+            { text: "кружка", feedback: "Ответ зарегистрирован." },
+            { text: "чайник", feedback: "Превосходно!" },
+            { text: "яблоко", feedback: "Ответ зарегистрирован." },
+            { text: "цветочный горшок", feedback: "Превосходно!" },
+            { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija matu sprādze?",
         ru: "Какого цвета была заколка?",
         options: {
-          lv: ["rozā", "oranža", "balta", "pelēka", "cits"],
-          ru: ["розовая", "оранжевая", "белая", "серая", "другое"]
+          lv: [
+            { text: "rozā", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+            { text: "oranža", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+            { text: "balta", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+            { text: "pelēka", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+            { text: "cits", feedback: "Paldies, turpinam." },
+          ],
+          ru: [
+            { text: "розовая", feedback: "Замечательно! Вы четко запоминаете детали." },
+            { text: "оранжевая", feedback: "Замечательно! Вы четко запоминаете детали." },
+            { text: "белая", feedback: "Замечательно! Вы четко запоминаете детали." },
+            { text: "серая", feedback: "Замечательно! Вы четко запоминаете детали." },
+            { text: "другое", feedback: "Спасибо, продолжаем." },
+          ]
         }
       },
       {
         lv: "Kāds numurs bija uz basketbola krekla?",
         ru: "Какой номер был на баскетбольной майке?",
         options: {
-          lv: ["27", "72", "57", "52", "cits"],
-          ru: ["27", "72", "57", "52", "другое"]
+          lv: [
+            { text: "27", feedback: "Precīzi!" },
+            { text: "72", feedback: "Paldies. Atbilde reģistrēta." },
+            { text: "57", feedback: "Paldies. Atbilde reģistrēta." },
+            { text: "52", feedback: "Paldies. Atbilde reģistrēta." },
+            { text: "cits", feedback: "Paldies. Atbilde reģistrēta." },
+          ],
+          ru: [
+            { text: "27", feedback: "Точно!" },
+            { text: "72", feedback: "Спасибо. Ответ зарегистрирован." },
+            { text: "57", feedback: "Спасибо. Ответ зарегистрирован." },
+            { text: "52", feedback: "Спасибо. Ответ зарегистрирован." },
+            { text: "другое", feedback: "Спасибо. Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kur atradās basketbola bumba?",
         ru: "Где находился баскетбольный мяч?",
         options: {
-          lv: ["kadra labajā pusē", "kadra kreisajā pusē", "sievietei zem kājas","sievietei rokās", "cits"],
-          ru: ["в правой части кадра", "в левой части кадра", "под ногой у женщины","в руках у женщины", "другое"]
+          lv: [
+            { text: "kadra labajā pusē", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+            { text: "kadra kreisajā pusē", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+            { text: "sievietei zem kājas", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+            { text: "sievietei rokās", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+            { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+            { text: "в правой части кадра", feedback: "Превосходно! Это свидетельствует о превосходном внимании и памяти." },
+            { text: "в левой части кадра", feedback: "Превосходно! Это свидетельствует о превосходном внимании и памяти." },
+            { text: "под ногой у женщины", feedback: "Превосходно! Это свидетельствует о превосходном внимании и памяти." },
+            { text: "в руках у женщины", feedback: "Превосходно! Это свидетельствует о превосходном внимании и памяти." },
+            { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija apavi?",
         ru: "Какого цвета была обувь?",
         options: {
-          lv: ["pelēka", "zila", "zaļa", "brūna", "cits"],
-          ru: ["серая", "синяя", "зеленая", "коричневая", "другое"]
+          lv: [
+            { text: "pelēka", feedback: "Tieši tā!" },
+            { text: "zila", feedback: "Paldies, turpinam." },
+            { text: "zaļa", feedback: "Paldies, turpinam." },
+            { text: "brūna", feedback: "Paldies, turpinam." },
+            { text: "cits", feedback: "Paldies, turpinam." },
+          ],
+          ru: [
+            { text: "серая", feedback: "Верно!" },
+            { text: "синяя", feedback: "Спасибо, продолжаем." },
+            { text: "зеленая", feedback: "Спасибо, продолжаем." },
+            { text: "коричневая", feedback: "Спасибо, продолжаем." },
+            { text: "другое", feedback: "Спасибо, продолжаем." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija austiņas?",
         ru: "Какого цвета были наушники?",
         options: {
-          lv: ["oranžas", "rozā", "pelēkas", "violetas", "cits"],
-          ru: ["оранжевые", "розовые", "серые", "фиолетовые", "другое"]
+          lv: [
+              { text: "oranžas", feedback: "Super! Precīza atbilde!" },
+              { text: "rozā", feedback: "Super! Precīza atbilde!" },
+              { text: "pelēkas", feedback: "Super! Precīza atbilde!" },
+              { text: "violetas", feedback: "Super! Precīza atbilde!" },
+              { text: "cits", feedback: "Atbilde reģistrēta" },
+          ],
+          ru: [
+              { text: "оранжевые", feedback: "Супер! Точный ответ!" },
+              { text: "розовые", feedback: "Супер! Точный ответ!" },
+              { text: "серые", feedback: "Супер! Точный ответ!" },
+              { text: "фиолетовые", feedback: "Супер! Точный ответ!" },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Uz kuras rokas bija rokas pulkstenis?",
         ru: "На какой руке были наручные часы?",
         options: {
-          lv: ["labajā kadra pusē", "kreisajā kadra pusē", "cits"],
-          ru: ["с правой стороны кадра", "с левой стороны кадра", "другое"]
+          lv: [
+              { text: "labajā kadra pusē", feedback: "Pareizi!" },
+              { text: "kreisajā kadra pusē", feedback: "Pareizi!" },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "с правой стороны кадра", feedback: "Правильно!" },
+              { text: "с левой стороны кадра", feedback: "Правильно!" },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       }
     ]
@@ -86,64 +178,160 @@ export const QUIZ_DATA = [
         lv: "Kādā krāsā bija džemperis?",
         ru: "Какого цвета был свитер?",
         options: {
-          lv: ["pelēks", "melns", "zils", "zaļš", "cits"],
-          ru: ["серый", "черный", "синий", "зеленый", "другое"]
+          lv: [
+              { text: "pelēks", feedback: "Atbilde reģistrēta." },
+              { text: "melns", feedback: "Atbilde reģistrēta." },
+              { text: "zils", feedback: "Atbilde reģistrēta." },
+              { text: "zaļš", feedback: "Ļoti labi!" },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "серый", feedback: "Ответ зарегестрирован." },
+              { text: "черный", feedback: "Ответ зарегестрирован." },
+              { text: "синий", feedback: "Ответ зарегестрирован." },
+              { text: "зеленый", feedback: "Очень хорошо!" },
+              { text: "другое", feedback: "Ответ зарегестрирован." },
+          ]
         }
       },
       {
         lv: "Kādi augļi bija redzami maisā?",
         ru: "Какие фрукты были видны в пакете?",
         options: {
-          lv: ["apelsīni", "āboli", "bumbieri", "banāni", "cits"],
-          ru: ["апельсины", "яблоки", "груши", "бананы", "другое"]
+          lv: [
+              { text: "apelsīni", feedback: "Paldies. Turpinam." },
+              { text: "āboli", feedback: "Paldies. Turpinam." },
+              { text: "bumbieri", feedback: "Paldies. Turpinam." },
+              { text: "banāni", feedback: "Super!" },
+              { text: "cits", feedback: "Paldies. Turpinam." },
+          ],
+          ru: [
+              { text: "апельсины", feedback: "Спасибо. Продолжает." },
+              { text: "яблоки", feedback: "Спасибо. Продолжает." },
+              { text: "груши", feedback: "Спасибо. Продолжает." },
+              { text: "бананы", feedback: "Супер!" },
+              { text: "другое", feedback: "Спасибо. Продолжает." },
+          ]
         }
       },
-      {
+      {//Diferent sequince
         lv: "Kādā krāsā bija cepure?",
         ru: "Какого цвета была шапка?",
         options: {
-          lv: ["sarkana", "zila", "zaļa", "melna", "cits"],
-          ru: ["красная", "синяя", "зеленая", "черная", "другое"]
+          lv: [
+              { text: "sarkana", feedback: "Lieliski!" },
+              { text: "zila", feedback: "Paldies par atbildi." },
+              { text: "zaļa", feedback: "Paldies par atbildi." },
+              { text: "melna", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "красная", feedback: "Замечательно!" },
+              { text: "синяя", feedback: "Спасибо за ответ." },
+              { text: "зеленая", feedback: "Спасибо за ответ." },
+              { text: "черная", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija apavi?",
         ru: "Какого цвета была обувь?",
         options: {
-          lv: ["melna", "zila", "balta", "bēša", "cits"],
-          ru: ["черная", "синяя", "белая", "бежевая", "другое"]
+          lv: [
+              { text: "melna", feedback: "Atbilde reģistrēta." },
+              { text: "zila", feedback: "Atbilde reģistrēta." },
+              { text: "balta", feedback: "Tieši tā!" },
+              { text: "bēžā", feedback: "Atbilde reģistrēta." },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "черная", feedback: "Ответ зарегистрирован." },
+              { text: "синяя", feedback: "Ответ зарегистрирован." },
+              { text: "белая", feedback: "Совершенно верно!" },
+              { text: "бежевая", feedback: "Ответ зарегистрирован." },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija paklājs?",
         ru: "Какого цвета был ковёр?",
         options: {
-          lv: ["zils", "sarkans", "oranžs", "zaļš", "cits"],
-          ru: ["синий", "красный", "оранжевый", "зеленый", "другое"]
+          lv: [
+              { text: "zils", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "sarkans", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "oranžs", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "zaļš", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "cits", feedback: "Paldies par atbildi.." },
+          ],
+          ru: [
+              { text: "синий", feedback: "Отлично! Этот ответ показывает хорошую наблюдательность." },
+              { text: "красный", feedback: "Отлично! Этот ответ показывает хорошую наблюдательность." },
+              { text: "оранжевый", feedback: "Отлично! Этот ответ показывает хорошую наблюдательность." },
+              { text: "зеленый", feedback: "Отлично! Этот ответ показывает хорошую наблюдательность." },
+              { text: "другое", feedback: "Спасибо за ответ" },
+          ]
         }
       },
-      {
-        lv: "Kādā krāsā bija apavi uz vīrieša?",
-        ru: "Какого цвета была обувь на мужчине?",
+      {//
+        lv: "Kādā krāsā lietussargs uz pakaramā?",
+        ru: "Какого цвета зонт на вешалке?",
         options: {
-          lv: ["zaļš", "zils", "oranžs", "bordo", "cits"],
-          ru: ["зеленый", "синий", "оранжевый", "бордовый", "другое"]
+          lv: [
+              { text: "zaļš", feedback: "Malacis! Jūsu atmiņa izskatās ļoti uzticama." },
+              { text: "zils", feedback: "Malacis! Jūsu atmiņa izskatās ļoti uzticama." },
+              { text: "oranžs", feedback: "Malacis! Jūsu atmiņa izskatās ļoti uzticama." },
+              { text: "bordo", feedback: "Malacis! Jūsu atmiņa izskatās ļoti uzticama." },
+              { text: "cits", feedback: "Paldies par atbild" },
+          ],
+          ru: [
+              { text: "зеленый", feedback: "Молодец! Ваша память выглядит очень надёжной." },
+              { text: "синий", feedback: "Молодец! Ваша память выглядит очень надёжной." },
+              { text: "оранжевый", feedback: "Молодец! Ваша память выглядит очень надёжной." },
+              { text: "бордовый", feedback: "Молодец! Ваша память выглядит очень надёжной." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kas bija uz sienas?",
         ru: "Что было на стене?",
         options: {
-          lv: ["spogulis", "hokeja plakāts", "kalendārs", "plakāts ar kalniem", "cits"],
-          ru: ["зеркало", "хоккейный плакат", "календарь", "плакат с горами", "другое"]
+          lv: [
+              { text: "spogulis", feedback: "Ļoti labi! Jūs pamanījāt būtiskāko no redzētā." },
+              { text: "hokeja plakāts", feedback: "Ļoti labi! Jūs pamanījāt būtiskāko no redzētā." },
+              { text: "kalendārs", feedback: "Ļoti labi! Jūs pamanījāt būtiskāko no redzētā." },
+              { text: "plakāts ar kalniem", feedback: "Ļoti labi! Jūs pamanījāt būtiskāko no redzētā." },
+              { text: "cits", feedback: "Paldies. Turpinam." },
+          ],
+          ru: [
+              { text: "зеркало", feedback: "Очень хорошо! Вы заметили значимое из увиденного." },
+              { text: "хоккейный плакат", feedback: "Очень хорошо! Вы заметили значимое из увиденного." },
+              { text: "календарь", feedback: "Очень хорошо! Вы заметили значимое из увиденного." },
+              { text: "плакат с горами", feedback: "Очень хорошо! Вы заметили значимое из увиденного." },
+              { text: "другое", feedback: "Спасибо. Продолжаем." },
+          ]
         }
       },
       {
         lv: "Kur atradās mugursoma?",
         ru: "Где находился рюкзак?",
         options: {
-          lv: ["uz grīdas kadra labajā pusē", "uz grīdas kadra kreisajā pusē", "uz pakaramā", "vīrietim uz pleciem", "cits"],
-          ru: ["на полу с правой стороны кадра", "на полу с левой стороны кадра", "на вешалке", "у мужчины на плечах", "другое"]
+          lv: [
+              { text: "uz grīdas kadra labajā pusē", feedback: "Perfekti!" },
+              { text: "uz grīdas kadra kreisajā pusē", feedback: "Perfekti!" },
+              { text: "uz pakaramā", feedback: "Perfekti!" },
+              { text: "vīrietim uz pleciem", feedback: "Perfekti!" },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "на полу с правой стороны кадра", feedback: "Совершенно верно!" },
+              { text: "на полу с левой стороны кадра", feedback: "Совершенно верно!" },
+              { text: "на вешалке", feedback: "Совершенно верно!" },
+              { text: "у мужчины на плечах", feedback: "Совершенно верно!" },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       }
     ]
@@ -155,64 +343,160 @@ export const QUIZ_DATA = [
         lv: "Kādā krāsā bija džemperis?",
         ru: "Какого цвета был свитер?",
         options: {
-          lv: ["melns", "balts", "sarkans", "zaļš", "cits"],
-          ru: ["черный", "белый", "красный", "зеленый", "другое"]
+          lv: [
+              { text: "melns", feedback: "Atbilde reģistrēta." },
+              { text: "balts", feedback: "Atbilde reģistrēta." },
+              { text: "sarkans", feedback: "Teicami!" },
+              { text: "zaļš", feedback: "Atbilde reģistrēta." },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "черный", feedback: "Ответ зарегистрирова." },
+              { text: "белый", feedback: "Ответ зарегистрирова." },
+              { text: "красный", feedback: "Замечательно!" },
+              { text: "зеленый", feedback: "Ответ зарегистрирова." },
+              { text: "другое", feedback: "Ответ зарегистрирова." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā bija apavi?",
         ru: "Какого цвета была обувь?",
         options: {
-          lv: ["melni", "balti", "sarkani", "pelēki", "cits"],
-          ru: ["черные", "белые", "красные", "серые", "другое"]
+          lv: [
+              { text: "melni", feedback: "Paldies par atbildi." },
+              { text: "balti", feedback: "Super!" },
+              { text: "sarkani", feedback: "Paldies par atbildi." },
+              { text: "pelēki", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "черные", feedback: "Спасибо за ответ." },
+              { text: "белые", feedback: "Супер!" },
+              { text: "красные", feedback: "Спасибо за ответ." },
+              { text: "серые", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā svece uz galda?",
         ru: "Какого цвета была свеча на столе?",
         options: {
-          lv: ["dzeltena", "sarkana", "balta", "melna", "cits"],
-          ru: ["желтая", "красная", "белая", "черная", "другое"]
+          lv: [
+              { text: "dzeltena", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+              { text: "sarkana", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+              { text: "balta", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+              { text: "melna", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+              { text: "cits", feedback: "Paldies. Turpinam." },
+          ],
+          ru: [
+              { text: "желтая", feedback: "Правильно! Вы внимательно замечаете детали." },
+              { text: "красная", feedback: "Правильно! Вы внимательно замечаете детали." },
+              { text: "белая", feedback: "Правильно! Вы внимательно замечаете детали." },
+              { text: "черная", feedback: "Правильно! Вы внимательно замечаете детали." },
+              { text: "другое", feedback: "Спасибо. Продолжаем." },
+          ]
         }
       },
       {
         lv: "Cik koka galda kāju bija redzams attēlā?",
         ru: "Сколько ножек деревянного стола было видно на изображении?",
         options: {
-          lv: ["1", "2", "3", "4", "cits"],
-          ru: ["1", "2", "3", "4", "другое"]
+          lv: [
+              { text: "1", feedback: "Atbilde reģistrēta." },
+              { text: "2", feedback: "Precīzi!" },
+              { text: "3", feedback: "Atbilde reģistrēta." },
+              { text: "4", feedback: "Atbilde reģistrēta." },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "1", feedback: "Ответ зарегистрирован." },
+              { text: "2", feedback: "Верно!" },
+              { text: "3", feedback: "Ответ зарегистрирован." },
+              { text: "4", feedback: "ПОтвет зарегистрирован." },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kādā formā kulons uz sudraba ķēdītes?",
         ru: "Какой формы был кулон на серебряной цепочке?",
         options: {
-          lv: ["apaļš", "kvadrāts", "trijstūris", "lāsveidīgs", "cits"],
-          ru: ["круглый", "квадрат", "треугольник", "каплевидный", "другое"]
+          lv: [
+              { text: "apaļš", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+              { text: "kvadrāts", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+              { text: "trijstūris", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+              { text: "lāsveidīgs", feedback: "Lieliski! Jūs precīzi atceraties detaļas." },
+              { text: "cits", feedback: "Paldies par atbildi" },
+          ],
+          ru: [
+              { text: "круглый", feedback: "Замечателньо! Вы точно запоминаете детали." },
+              { text: "квадрат", feedback: "Замечателньо! Вы точно запоминаете детали." },
+              { text: "треугольник", feedback: "Замечателньо! Вы точно запоминаете детали." },
+              { text: "каплевидный", feedback: "Замечателньо! Вы точно запоминаете детали." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā cepure?",
         ru: "Какого цвета была шапка?",
         options: {
-          lv: ["melna", "balta", "sarkana", "violeta", "cits"],
-          ru: ["черная", "белая", "красная", "фиолетовая", "другое"]
+          lv: [
+              { text: "melna", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi!" },
+              { text: "balta", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi!" },
+              { text: "sarkana", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi!." },
+              { text: "violeta", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi!" },
+              { text: "cits", feedback: "Paldies, atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "черная", feedback: "Так точно! Вы верно запомнили." },
+              { text: "белая", feedback: "Так точно! Вы верно запомнили." },
+              { text: "красная", feedback: "Так точно! Вы верно запомнили." },
+              { text: "фиолетовая", feedback: "Так точно! Вы верно запомнили." },
+              { text: "другое", feedback: "Спасибо, ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā grāmata?",
         ru: "Какого цвета была книга?",
         options: {
-          lv: ["zaļa", "sarkana", "dzeltena", "zila", "cits"],
-          ru: ["зеленая", "красная", "желтая", "синяя", "другое"]
+          lv: [
+              { text: "zaļa", feedback: "Super!" },
+              { text: "sarkana", feedback: "Paldies par atbildi." },
+              { text: "dzeltena", feedback: "Paldies par atbildi." },
+              { text: "zila", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "зеленая", feedback: "Супер!" },
+              { text: "красная", feedback: "Спасибо за ответ." },
+              { text: "желтая", feedback: "Спасибо за ответ." },
+              { text: "синяя", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Cik bija kabatu?",
         ru: "Сколько было карманов?",
         options: {
-          lv: ["1", "2", "3", "4", "cits"],
-          ru: ["1", "2", "3", "4", "другое"]
+          lv: [
+              { text: "1", feedback: "Malacis! Jūs esat ļoti uzmanigs(-a)!" },
+              { text: "2", feedback: "Malacis! Jūs esat ļoti uzmanigs(-a)!" },
+              { text: "3", feedback: "Malacis! Jūs esat ļoti uzmanigs(-a)!" },
+              { text: "4", feedback: "Malacis! Jūs esat ļoti uzmanigs(-a)!" },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "1", feedback: "Молодец! Вы очень внимательны(-а)!" },
+              { text: "2", feedback: "Молодец! Вы очень внимательны(-а)!" },
+              { text: "3", feedback: "Молодец! Вы очень внимательны(-а)!" },
+              { text: "4", feedback: "Молодец! Вы очень внимательны(-а)!" },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       }
     ]
@@ -224,48 +508,118 @@ export const QUIZ_DATA = [
         lv: "Kādā krāsā žakete?",
         ru: "Какого цвета был пиджак?",
         options: {
-          lv: ["pelēka", "zila", "zaļa", "brūna", "cits"],
-          ru: ["серая", "синяя", "зеленая", "коричневая", "другое"]
+          lv: [
+              { text: "pelēka", feedback: "Paldies par atbildi." },
+              { text: "zila", feedback: "Pareizi!" },
+              { text: "zaļa", feedback: "Paldies par atbildi." },
+              { text: "brūna", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "серая", feedback: "Спасибо за ответ." },
+              { text: "синяя", feedback: "Правильно!" },
+              { text: "зеленая", feedback: "Спасибо за ответ." },
+              { text: "коричневая", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā kaklasaite?",
         ru: "Какого цвета был галстук?",
         options: {
-          lv: ["zila", "melna", "bordo", "pelēka", "cits"],
-          ru: ["синяя", "черная", "бордовая", "серая", "другое"]
+          lv: [
+              { text: "zila", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+              { text: "melna", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+              { text: "bordo", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+              { text: "pelēka", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+              { text: "cits", feedback: "Paldies, atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "синяя", feedback: "Превосходно! Это свидетельствует о хорошем внимании и памяти." },
+              { text: "черная", feedback: "Превосходно! Это свидетельствует о хорошем внимании и памяти." },
+              { text: "бордовая", feedback: "Превосходно! Это свидетельствует о хорошем внимании и памяти." },
+              { text: "серая", feedback: "Превосходно! Это свидетельствует о хорошем внимании и памяти." },
+              { text: "другое", feedback: "Спасибо, ответ зарегистрирован" },
+          ]
         }
       },
       {
         lv: "Kādā krāsā žurnāls?",
         ru: "Какого цвета был журнал?",
         options: {
-          lv: ["zaļš", "sarkans", "dzeltens", "balts", "cits"],
-          ru: ["зеленый", "красный", "желтый", "белый", "другое"]
+          lv: [
+              { text: "zaļš", feedback: "Paldies par atbildi." },
+              { text: "sarkans", feedback: "Paldies par atbildi." },
+              { text: "dzeltens", feedback: "Super!" },
+              { text: "balts", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies par atbildi." },
+          ],
+          ru: [
+              { text: "зеленый", feedback: "Спасибо за ответ." },
+              { text: "красный", feedback: "Спасибо за ответ." },
+              { text: "желтый", feedback: "Супер!" },
+              { text: "белый", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Спасибо за ответ." },
+          ]
         }
       },
       {
         lv: "Kas atrodas kadra labajā pusē?",
         ru: "Что находится справа в кадре?",
         options: {
-          lv: ["krēsls", "plaukts", "galds", "durvis", "cits"],
-          ru: ["стул", "полка", "стол", "дверь", "другое"]
+          lv: [
+              { text: "krēsls", feedback: "Paldies. Turpinam." },
+              { text: "plaukts", feedback: "Tieši tā!" },
+              { text: "galds", feedback: "Paldies. Turpinam." },
+              { text: "durvis", feedback: "Paldies. Turpinam." },
+              { text: "cits", feedback: "Paldies. Turpinam." },
+          ],
+          ru: [
+              { text: "стул", feedback: "Спасибо. Продолжаем." },
+              { text: "полка", feedback: "Верно!" },
+              { text: "стол", feedback: "Спасибо. Продолжаем." },
+              { text: "дверь", feedback: "Спасибо. Продолжаем." },
+              { text: "другое", feedback: "Спасибо. Продолжаем." },
+          ]
         }
       },
       {
         lv: "Kurā plauktā stāvēja globuss?",
         ru: "На какой полке стоял глобус?",
         options: {
-          lv: ["augšējā", "vidējā", "zemākajā", "cits"],
-          ru: ["на верхней", "на средней", "на нижней", "другое"]
+          lv: [
+              { text: "augšējā", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "vidējā", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "zemākajā", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju." },
+              { text: "cits", feedback: "Atbilde reģistrēta." },
+          ],
+          ru: [
+              { text: "на верхней", feedback: "Отлично! Этот ответ свидетельствует о хорошей наблюдательности." },
+              { text: "на средней", feedback: "Отлично! Этот ответ свидетельствует о хорошей наблюдательности." },
+              { text: "на нижней", feedback: "Отлично! Этот ответ свидетельствует о хорошей наблюдательности." },
+              { text: "другое", feedback: "Ответ зарегистрирован." },
+          ]
         }
       },
       {
         lv: "Kādā krāsā apavi?",
         ru: "Какого цвета была обувь?",
         options: {
-          lv: ["melni", "balti", "pelēki", "zaļi", "cits"],
-          ru: ["черные", "белые", "серые", "зеленые", "другое"]
+          lv: [
+              { text: "melni", feedback: "Ļoti labi!" },
+              { text: "balti", feedback: "Paldies par atbildi." },
+              { text: "pelēki", feedback: "Paldies par atbildi." },
+              { text: "zaļi", feedback: "Paldies par atbildi." },
+              { text: "cits", feedback: "Paldies." },
+          ],
+          ru: [
+              { text: "черные", feedback: "Спасибо за ответ." },
+              { text: "белые", feedback: "Спасибо за ответ." },
+              { text: "серые", feedback: "Спасибо за ответ." },
+              { text: "зеленые", feedback: "Спасибо за ответ." },
+              { text: "другое", feedback: "Очень хорошо!" },
+          ]
         }
       },
 
@@ -273,8 +627,20 @@ export const QUIZ_DATA = [
         lv: "Kādā krāsā puķupods?",
         ru: "Какого цвета был цветочный горшок?",
         options: {
-          lv: ["melns", "balts", "zaļš", "pelēks", "cits"],
-          ru: ["черный", "белый", "зеленый", "серый", "другое"]
+          lv: [
+              { text: "melns", feedback: "Malacis! Jūsu atmiņa izrādās ļoti uzticama." },
+              { text: "balts", feedback: "Malacis! Jūsu atmiņa izrādās ļoti uzticama." },
+              { text: "zaļš", feedback: "Malacis! Jūsu atmiņa izrādās ļoti uzticama." },
+              { text: "pelēks", feedback: "Malacis! Jūsu atmiņa izrādās ļoti uzticama." },
+              { text: "cits", feedback: "Paldies, turpinam." },
+          ],
+          ru: [
+              { text: "черный", feedback: "Молодец! Похоже, ваша память очень надёжная." },
+              { text: "белый", feedback: "Молодец! Похоже, ваша память очень надёжная." },
+              { text: "зеленый", feedback: "Молодец! Похоже, ваша память очень надёжная." },
+              { text: "серый", feedback: "Молодец! Похоже, ваша память очень надёжная." },
+              { text: "другое", feedback: "Спасибо, продолжаем." },
+          ]
         }
       },
 
@@ -282,8 +648,20 @@ export const QUIZ_DATA = [
         lv: "Cik baltu pildspalvu bija pildspalvu  turētājā?",
         ru: "Сколько белых ручек было в подставке?",
         options: {
-            lv: ["1", "2", "3", "neviena", "cits"],
-            ru: ["1", "2", "3", "ни одной", "другое"]
+            lv: [
+                { text: "1", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
+                { text: "2", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
+                { text: "3", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas" },
+                { text: "neviena", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
+                { text: "cits", feedback: "Paldies par atbildi." },
+            ],
+            ru: [
+                { text: "1", feedback: "Отлично! Вы точно вспомнили детали." },
+                { text: "2", feedback: "Отлично! Вы точно вспомнили детали." },
+                { text: "3", feedback: "Отлично! Вы точно вспомнили детали." },
+                { text: "ни одной", feedback: "Отлично! Вы точно вспомнили детали." },
+                { text: "другое", feedback: "Спасибо за ответ." },
+            ]
         }
       }
     ]
@@ -294,48 +672,116 @@ export const QUIZ_DATA = [
           lv: "Kādu laiku rādīja sienas pulkstenis?",
           ru: "Которое время показывали настенные часы?",
           options: {
-            lv: ["10:10", "9:10", "11:05", "11:10", "cits"],
-            ru: ["10:10", "9:10", "11:05", "11:10", "другое"]
+            lv: [
+                { text: "10:10", feedback: "Precīzi!" },
+                { text: "9:10", feedback: "Paldies. Turpinam." },
+                { text: "11:05", feedback: "Paldies. Turpinam." },
+                { text: "11:10", feedback: "Paldies. Turpinam." },
+                { text: "cits", feedback: "Paldies. Turpinam." },
+            ],
+            ru: [
+                { text: "10:10", feedback: "Точно!" },
+                { text: "9:10", feedback: "Спасибо, продолжаем." },
+                { text: "11:05", feedback: "Спасибо, продолжаем." },
+                { text: "11:10", feedback: "Спасибо, продолжаем." },
+                { text: "другое", feedback: "Спасибо, продолжаем." },
+            ]
           }
         },
         {
           lv: "Kāda figūriņa atradās uz galda?",
           ru: "Какая фигурка находилась на столе?",
           options: {
-            lv: ["globuss", "mašīna", "lidmašīna", "saulīte", "cits"],
-            ru: ["глобус", "машина", "самолёт", "солнышко", "другое"]
+            lv: [
+                { text: "globuss", feedback: "Atbilde reģistrēta." },
+                { text: "mašīna", feedback: "Atbilde reģistrēta." },
+                { text: "lidmašīna", feedback: "Tieši tā!" },
+                { text: "saulīte", feedback: "Atbilde reģistrēta." },
+                { text: "cits", feedback: "Atbilde reģistrēta." },
+            ],
+            ru: [
+                { text: "глобус", feedback: "Atbilde reģistrēta." },
+                { text: "машина", feedback: "Atbilde reģistrēta." },
+                { text: "самолёт", feedback: "Верно!" },
+                { text: "солнышко", feedback: "Atbilde reģistrēta." },
+                { text: "другое", feedback: "Atbilde reģistrēta." },
+            ]
           }
         },
         {
           lv: "Kādā rokā ir ģērbts rokas pulkstenis?",
           ru: "На какой руке были наручные часы?",
           options: {
-            lv: ["labajā kadra pusē ", "kreisajā kadra pusē", "cits"],
-            ru: [" правой стороне кадра", "с левой стороны", "другое"]
+            lv: [
+                { text: "labajā kadra pusē ", feedback: "Super!" },
+                { text: "kreisajā kadra pusē", feedback: "Paldies par atbildi." },
+                { text: "cits", feedback: "Paldies par atbildi." },
+            ],
+            ru: [
+                { text: " правой стороне кадра", feedback: "Супер!" },
+                { text: "с левой стороны", feedback: "Спасибо за ответ." },
+                { text: "другое", feedback: "Спасибо за ответ." },
+            ]
           }
         },
         {
           lv: "Uz kura pirksta bija gredzens?",
           ru: "На каком пальце было кольцо?",
           options: {
-            lv: ["rādītājpirksts", "vidējais pirksts", "zeltneša pirksts", "mazais pirksts", "cits"],
-            ru: ["указательный палец", "средний палец", "безымянный палец", "мизинец", "другое"]
+            lv: [
+                { text: "rādītājpirksts", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+                { text: "vidējais pirksts", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+                { text: "zeltneša pirksts", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+                { text: "mazais pirksts", feedback: "Pareizi! Jūs uzmanīgi ievērojāt detaļas." },
+                { text: "cits", feedback: "Atbilde reģistrēta." },
+            ],
+            ru: [
+                { text: "указательный палец", feedback: "Правильно! Вы внимательно заметили детали." },
+                { text: "средний палец", feedback: "Правильно! Вы внимательно заметили детали." },
+                { text: "безымянный палец", feedback: "Правильно! Вы внимательно заметили детали." },
+                { text: "мизинец", feedback: "Правильно! Вы внимательно заметили детали." },
+                { text: "другое", feedback: "Ответ зарегистрирован." },
+            ]
           }
         },
         {
           lv: "Uz kā bija apaļa emblēma?",
           ru: "На чём была круглая эмблема?",
           options: {
-            lv: ["dators", "džemperis", "bloknots", "krūze", "cits"],
-            ru: ["компьютер", "свитер", "блокнот", "кружка", "другое"]
+            lv: [
+                { text: "dators", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+                { text: "džemperis", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+                { text: "bloknots", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+                { text: "krūze", feedback: "Perfekti! Tas liecina par izcilu uzmanību un atmiņu." },
+                { text: "cits", feedback: "Paldies, turpinam." },
+            ],
+            ru: [
+                { text: "компьютер", feedback: "Превосходно! Это говорит о замечательном внимании и памяти." },
+                { text: "свитер", feedback: "Превосходно! Это говорит о замечательном внимании и памяти." },
+                { text: "блокнот", feedback: "Превосходно! Это говорит о замечательном внимании и памяти." },
+                { text: "кружка", feedback: "Превосходно! Это говорит о замечательном внимании и памяти." },
+                { text: "другое", feedback: "Спасибо, продолжаем." },
+            ]
           }
         },
         {
           lv: "Kas atradās uz šķīvja?",
           ru: "Что находилось на тарелке?",
           options: {
-            lv: ["krūze", "kūka", "ābols", "persiks", "cits"],
-            ru: ["кружка", "пирожное", "яблоко", "персик", "другое"]
+            lv: [
+                { text: "krūze", feedback: "Atbilde reģistrēta." },
+                { text: "kūka", feedback: "Atbilde reģistrēta." },
+                { text: "ābols", feedback: "Ļoti labi!" },
+                { text: "persiks", feedback: "Atbilde reģistrēta." },
+                { text: "cits", feedback: "Atbilde reģistrēta." },
+            ],
+            ru: [
+                { text: "кружка", feedback: "Ответ зарегистрирован." },
+                { text: "пирожное", feedback: "Ответ зарегистрирован." },
+                { text: "яблоко", feedback: "Очень хорошо!" },
+                { text: "персик", feedback: "Ответ зарегистрирован." },
+                { text: "другое", feedback: "Ответ зарегистрирован." },
+            ]
           }
         },
 
@@ -343,16 +789,38 @@ export const QUIZ_DATA = [
           lv: "Cik pogu uz džempera?",
           ru: "Сколько пуговиц было на свитере?",
           options: {
-            lv: ["1", "2", "3", "4", "cits"],
-            ru: ["1", "2", "3", "4", "другое"]
+            lv: [
+                { text: "1", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju!" },
+                { text: "2", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju!" },
+                { text: "3", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju!" },
+                { text: "4", feedback: "Izcili! Šī atbilde rāda labu novērošanas spēju!" },
+                { text: "cits", feedback: "Paldies par atbildi." },
+            ],
+            ru: [
+                { text: "1", feedback: "Отлично! Ваш ответ свидетельствует о хорошей наблюдательности!" },
+                { text: "2", feedback: "Отлично! Ваш ответ свидетельствует о хорошей наблюдательности!" },
+                { text: "3", feedback: "Отлично! Ваш ответ свидетельствует о хорошей наблюдательности!" },
+                { text: "4", feedback: "Отлично! Ваш ответ свидетельствует о хорошей наблюдательности!" },
+                { text: "другое", feedback: "Спасибо за ответ." },
+            ]
           }
         },
         {
           lv: "Kura kadra pusē stāvēja krūze?",
           ru: "С какой стороны кадра стояла кружка?",
           options: {
-            lv: ["labajā", "kreisajā", "pa vidu", "cits"],
-            ru: ["справа", "слева", "посередине", "другое"]
+            lv: [
+                { text: "labajā", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi." },
+                { text: "kreisajā", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi." },
+                { text: "pa vidu", feedback: "Tieši tā! Jūs atcerējāties ļoti precīzi." },
+                { text: "cits", feedback: "Paldies, atbilde reģistrēta." },
+            ],
+            ru: [
+                { text: "справа", feedback: "Именно так! Вы вспомнили очень точно." },
+                { text: "слева", feedback: "Именно так! Вы вспомнили очень точно." },
+                { text: "посередине", feedback: "Именно так! Вы вспомнили очень точно." },
+                { text: "другое", feedback: "Спасибо, ответ зарегестрирован." },
+            ]
           }
         }
     ]
