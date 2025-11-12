@@ -1,3 +1,4 @@
+
 // NOTE: These questions and answers are placeholders to demonstrate the application's functionality.
 // They should be replaced with the actual questions from the study.
 
@@ -31,7 +32,8 @@ export const QUIZ_DATA = [
             { text: "желтый", feedback: "Спасибо за ответ." },
             { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kas stāvēja uz tējas galdiņa?",
@@ -51,7 +53,8 @@ export const QUIZ_DATA = [
             { text: "цветочный горшок", feedback: "Превосходно!" },
             { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
       {
         lv: "Kādā krāsā bija matu sprādze?",
@@ -71,7 +74,8 @@ export const QUIZ_DATA = [
             { text: "серая", feedback: "Замечательно! Вы четко запоминаете детали." },
             { text: "другое", feedback: "Спасибо, продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kāds numurs bija uz basketbola krekla?",
@@ -91,7 +95,8 @@ export const QUIZ_DATA = [
             { text: "52", feedback: "Спасибо. Ответ зарегистрирован." },
             { text: "другое", feedback: "Спасибо. Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kur atradās basketbola bumba?",
@@ -111,7 +116,8 @@ export const QUIZ_DATA = [
             { text: "в руках у женщины", feedback: "Превосходно! Это свидетельствует о превосходном внимании и памяти." },
             { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā bija apavi?",
@@ -131,7 +137,8 @@ export const QUIZ_DATA = [
             { text: "коричневая", feedback: "Спасибо, продолжаем." },
             { text: "другое", feedback: "Спасибо, продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā bija austiņas?",
@@ -151,7 +158,8 @@ export const QUIZ_DATA = [
               { text: "фиолетовые", feedback: "Супер! Точный ответ!" },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Uz kuras rokas bija rokas pulkstenis?",
@@ -167,7 +175,8 @@ export const QUIZ_DATA = [
               { text: "с левой стороны кадра", feedback: "Правильно!" },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       }
     ]
   },
@@ -192,7 +201,8 @@ export const QUIZ_DATA = [
               { text: "зеленый", feedback: "Очень хорошо!" },
               { text: "другое", feedback: "Ответ зарегестрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 3
       },
       {
         lv: "Kādi augļi bija redzami maisā?",
@@ -212,7 +222,8 @@ export const QUIZ_DATA = [
               { text: "бананы", feedback: "Супер!" },
               { text: "другое", feedback: "Спасибо. Продолжает." },
           ]
-        }
+        },
+        correctAnswerIndex: 3
       },
       {//Diferent sequince
         lv: "Kādā krāsā bija cepure?",
@@ -232,7 +243,8 @@ export const QUIZ_DATA = [
               { text: "черная", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā bija apavi?",
@@ -252,7 +264,8 @@ export const QUIZ_DATA = [
               { text: "бежевая", feedback: "Ответ зарегистрирован." },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 2
       },
       {
         lv: "Kādā krāsā bija paklājs?",
@@ -272,7 +285,8 @@ export const QUIZ_DATA = [
               { text: "зеленый", feedback: "Отлично! Этот ответ показывает хорошую наблюдательность." },
               { text: "другое", feedback: "Спасибо за ответ" },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {//
         lv: "Kādā krāsā lietussargs uz pakaramā?",
@@ -292,7 +306,8 @@ export const QUIZ_DATA = [
               { text: "бордовый", feedback: "Молодец! Ваша память выглядит очень надёжной." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 3
       },
       {
         lv: "Kas bija uz sienas?",
@@ -312,7 +327,8 @@ export const QUIZ_DATA = [
               { text: "плакат с горами", feedback: "Очень хорошо! Вы заметили значимое из увиденного." },
               { text: "другое", feedback: "Спасибо. Продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kur atradās mugursoma?",
@@ -332,7 +348,8 @@ export const QUIZ_DATA = [
               { text: "у мужчины на плечах", feedback: "Совершенно верно!" },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       }
     ]
   },
@@ -357,7 +374,8 @@ export const QUIZ_DATA = [
               { text: "зеленый", feedback: "Ответ зарегистрирова." },
               { text: "другое", feedback: "Ответ зарегистрирова." },
           ]
-        }
+        },
+        correctAnswerIndex: 2
       },
       {
         lv: "Kādā krāsā bija apavi?",
@@ -377,7 +395,8 @@ export const QUIZ_DATA = [
               { text: "серые", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
       {
         lv: "Kādā krāsā svece uz galda?",
@@ -397,7 +416,8 @@ export const QUIZ_DATA = [
               { text: "черная", feedback: "Правильно! Вы внимательно замечаете детали." },
               { text: "другое", feedback: "Спасибо. Продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 2
       },
       {
         lv: "Cik koka galda kāju bija redzams attēlā?",
@@ -417,7 +437,8 @@ export const QUIZ_DATA = [
               { text: "4", feedback: "ПОтвет зарегистрирован." },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
       {
         lv: "Kādā formā kulons uz sudraba ķēdītes?",
@@ -437,7 +458,8 @@ export const QUIZ_DATA = [
               { text: "каплевидный", feedback: "Замечателньо! Вы точно запоминаете детали." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā cepure?",
@@ -457,7 +479,8 @@ export const QUIZ_DATA = [
               { text: "фиолетовая", feedback: "Так точно! Вы верно запомнили." },
               { text: "другое", feedback: "Спасибо, ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā grāmata?",
@@ -477,7 +500,8 @@ export const QUIZ_DATA = [
               { text: "синяя", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Cik bija kabatu?",
@@ -497,7 +521,8 @@ export const QUIZ_DATA = [
               { text: "4", feedback: "Молодец! Вы очень внимательны(-а)!" },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       }
     ]
   },
@@ -522,7 +547,8 @@ export const QUIZ_DATA = [
               { text: "коричневая", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
       {
         lv: "Kādā krāsā kaklasaite?",
@@ -542,7 +568,8 @@ export const QUIZ_DATA = [
               { text: "серая", feedback: "Превосходно! Это свидетельствует о хорошем внимании и памяти." },
               { text: "другое", feedback: "Спасибо, ответ зарегистрирован" },
           ]
-        }
+        },
+        correctAnswerIndex: 2
       },
       {
         lv: "Kādā krāsā žurnāls?",
@@ -562,7 +589,8 @@ export const QUIZ_DATA = [
               { text: "белый", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Спасибо за ответ." },
           ]
-        }
+        },
+        correctAnswerIndex: 2
       },
       {
         lv: "Kas atrodas kadra labajā pusē?",
@@ -582,7 +610,8 @@ export const QUIZ_DATA = [
               { text: "дверь", feedback: "Спасибо. Продолжаем." },
               { text: "другое", feedback: "Спасибо. Продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
       {
         lv: "Kurā plauktā stāvēja globuss?",
@@ -600,7 +629,8 @@ export const QUIZ_DATA = [
               { text: "на нижней", feedback: "Отлично! Этот ответ свидетельствует о хорошей наблюдательности." },
               { text: "другое", feedback: "Ответ зарегистрирован." },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
       {
         lv: "Kādā krāsā apavi?",
@@ -620,9 +650,9 @@ export const QUIZ_DATA = [
               { text: "зеленые", feedback: "Спасибо за ответ." },
               { text: "другое", feedback: "Очень хорошо!" },
           ]
-        }
+        },
+        correctAnswerIndex: 0
       },
-
       {
         lv: "Kādā krāsā puķupods?",
         ru: "Какого цвета был цветочный горшок?",
@@ -641,9 +671,9 @@ export const QUIZ_DATA = [
               { text: "серый", feedback: "Молодец! Похоже, ваша память очень надёжная." },
               { text: "другое", feedback: "Спасибо, продолжаем." },
           ]
-        }
+        },
+        correctAnswerIndex: 1
       },
-
       {
         lv: "Cik baltu pildspalvu bija pildspalvu  turētājā?",
         ru: "Сколько белых ручек было в подставке?",
@@ -652,17 +682,16 @@ export const QUIZ_DATA = [
                 { text: "1", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
                 { text: "2", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
                 { text: "3", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas" },
-                { text: "neviena", feedback: "Lieliski! Jūs precīzi atcerējāties detaļas." },
                 { text: "cits", feedback: "Paldies par atbildi." },
             ],
             ru: [
                 { text: "1", feedback: "Отлично! Вы точно вспомнили детали." },
                 { text: "2", feedback: "Отлично! Вы точно вспомнили детали." },
                 { text: "3", feedback: "Отлично! Вы точно вспомнили детали." },
-                { text: "ни одной", feedback: "Отлично! Вы точно вспомнили детали." },
                 { text: "другое", feedback: "Спасибо за ответ." },
             ]
-        }
+        },
+        correctAnswerIndex: 1
       }
     ]
   },
@@ -686,7 +715,8 @@ export const QUIZ_DATA = [
                 { text: "11:10", feedback: "Спасибо, продолжаем." },
                 { text: "другое", feedback: "Спасибо, продолжаем." },
             ]
-          }
+          },
+          correctAnswerIndex: 0
         },
         {
           lv: "Kāda figūriņa atradās uz galda?",
@@ -706,7 +736,8 @@ export const QUIZ_DATA = [
                 { text: "солнышко", feedback: "Atbilde reģistrēta." },
                 { text: "другое", feedback: "Atbilde reģistrēta." },
             ]
-          }
+          },
+          correctAnswerIndex: 2
         },
         {
           lv: "Kādā rokā ir ģērbts rokas pulkstenis?",
@@ -722,7 +753,8 @@ export const QUIZ_DATA = [
                 { text: "с левой стороны", feedback: "Спасибо за ответ." },
                 { text: "другое", feedback: "Спасибо за ответ." },
             ]
-          }
+          },
+          correctAnswerIndex: 0
         },
         {
           lv: "Uz kura pirksta bija gredzens?",
@@ -742,7 +774,8 @@ export const QUIZ_DATA = [
                 { text: "мизинец", feedback: "Правильно! Вы внимательно заметили детали." },
                 { text: "другое", feedback: "Ответ зарегистрирован." },
             ]
-          }
+          },
+          correctAnswerIndex: 2
         },
         {
           lv: "Uz kā bija apaļa emblēma?",
@@ -762,7 +795,8 @@ export const QUIZ_DATA = [
                 { text: "кружка", feedback: "Превосходно! Это говорит о замечательном внимании и памяти." },
                 { text: "другое", feedback: "Спасибо, продолжаем." },
             ]
-          }
+          },
+          correctAnswerIndex: 3
         },
         {
           lv: "Kas atradās uz šķīvja?",
@@ -782,7 +816,8 @@ export const QUIZ_DATA = [
                 { text: "персик", feedback: "Ответ зарегистрирован." },
                 { text: "другое", feedback: "Ответ зарегистрирован." },
             ]
-          }
+          },
+          correctAnswerIndex: 2
         },
 
         {
@@ -803,7 +838,8 @@ export const QUIZ_DATA = [
                 { text: "4", feedback: "Отлично! Ваш ответ свидетельствует о хорошей наблюдательности!" },
                 { text: "другое", feedback: "Спасибо за ответ." },
             ]
-          }
+          },
+          correctAnswerIndex: 2
         },
         {
           lv: "Kura kadra pusē stāvēja krūze?",
@@ -821,7 +857,8 @@ export const QUIZ_DATA = [
                 { text: "посередине", feedback: "Именно так! Вы вспомнили очень точно." },
                 { text: "другое", feedback: "Спасибо, ответ зарегестрирован." },
             ]
-          }
+          },
+          correctAnswerIndex: 0
         }
     ]
   }
@@ -879,6 +916,11 @@ export const content = {
             thankYou: 'Спасибо за участие! ',
             successDescription: 'Ваши результаты были записаны.',
             submitButton: 'ОТПРАВИТЬ',
+            resultsTitle: 'Ваши результаты',
+            forwardMaxLabel: 'Тест на запоминание чисел (прямая)',
+            backwardMaxLabel: 'Тест на запоминание чисел (обратная)',
+            quizScoreLabel: 'Тест с изображениями',
+            scoreFormat: 'правильно из',
         },
         common: {
             readyButton: 'Готов',
@@ -943,6 +985,11 @@ export const content = {
             thankYou: 'Paldies par dalību! ',
             successDescription: 'Jūsu rezultāti ir ierakstīti.',
             submitButton: 'NOSŪTĪT',
+            resultsTitle: 'Jūsu rezultāti',
+            forwardMaxLabel: 'Ciparu tests (tiešā secība)',
+            backwardMaxLabel: 'Ciparu tests (atgriezeniskā secība)',
+            quizScoreLabel: 'Attēlu tests',
+            scoreFormat: 'pareizi no',
         },
         common: {
             readyButton: 'Gatavs',

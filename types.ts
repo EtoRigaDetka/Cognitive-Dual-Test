@@ -13,6 +13,7 @@ export interface UserInfo {
     age: number;
     gender: string;
     email: string;
+    version: 'v1' | 'v2';
 }
 
 export interface DigitSpanTrial {
@@ -32,4 +33,5 @@ export interface QuizAnswer {
     questionNr: number;
     answer: number;
     confidence: number;
+    correct: boolean;
 }

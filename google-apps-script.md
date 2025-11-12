@@ -1,3 +1,4 @@
+
 const SHEET_ID = '1uTdrNoc1W847OxfQ07oNBur_CeoEIwvWo4zoNX2F7hA';
 const SHEET_NAME = 'Results';
 
@@ -23,6 +24,7 @@ function doPost(e) {
       'email',
       'age',
       'gender', 
+      'version',
       'forwardMax', 
       'backwardMax', 
       'forwardTrials', 
@@ -41,6 +43,7 @@ function doPost(e) {
       data.email || '',
       data.age || '',
       data.gender || '',
+      data.version || '',
       data.forwardMax || 0,
       data.backwardMax || 0,
       JSON.stringify(data.forwardTrials || []),
@@ -85,6 +88,7 @@ function testDoPost() {
         email: "exemple@gmail.com",
         age: 22,
         gender: "Vīrietis",
+        version: "v2",
         forwardMax: 0,
         backwardMax: 0,
         forwardTrials: [

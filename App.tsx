@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { TestState, Language, DigitSpanResult, QuizAnswer, UserInfo } from './types';
 import { content } from './constants';
@@ -18,8 +19,9 @@ const App: React.FC = () => {
     const [backwardResult, setBackwardResult] = useState<DigitSpanResult | null>(null);
     const [quizResult, setQuizResult] = useState<QuizAnswer[] | null>(null);
 
-    const handleStart = useCallback((info: UserInfo) => {
-        setUserInfo(info);
+    const handleStart = useCallback((info: Omit<UserInfo, 'version'>) => {
+        const version = Math.random() < 0.5 ? 'v1' : 'v2';
+        setUserInfo({ ...info, version });
         setTestState(TestState.DigitSpanForward);
     }, []);
 
@@ -50,6 +52,7 @@ const App: React.FC = () => {
             email: userInfo.email || '',
             age: userInfo.age,
             gender: userInfo.gender,
+            version: userInfo.version,
             forwardMax: forwardResult.maxLength,
             backwardMax: backwardResult.maxLength,
             forwardTrials: forwardResult.trials,
@@ -75,9 +78,21 @@ const App: React.FC = () => {
             case TestState.DigitSpanBackward:
                 return <DigitSpanTest key="backward" mode="backward" onComplete={handleBackwardComplete} content={content[language].digitSpanBackward} commonContent={content[language].common} />;
             case TestState.MemoryTest:
-                return <MemoryTest onComplete={handleMemoryTestComplete} content={content[language].memoryTest} commonContent={content[language].common} language={language}/>;
+                return userInfo ? <MemoryTest onComplete={handleMemoryTestComplete} content={content[language].memoryTest} commonContent={content[language].common} language={language} version={userInfo.version}/> : null;
             case TestState.Final:
-                return <FinalScreen onSubmit={handleFinalSubmit} content={content[language].final} errorContent={content[language].submissionError} />;
+                const resultsSummary = (forwardResult && backwardResult && quizResult) ? {
+                    forwardMax: forwardResult.maxLength,
+                    backwardMax: backwardResult.maxLength,
+                    quizCorrect: quizResult.filter(a => a.correct).length,
+                    quizTotal: quizResult.length
+                } : null;
+
+                return <FinalScreen 
+                            onSubmit={handleFinalSubmit} 
+                            content={content[language].final} 
+                            errorContent={content[language].submissionError}
+                            results={resultsSummary}
+                        />;
             default:
                 return null;
         }

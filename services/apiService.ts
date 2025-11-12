@@ -1,6 +1,10 @@
 // ВАЖНО: Замените 'YOUR_DEPLOYMENT_ID' на реальный ID вашего развертывания Google Apps Script.
 // После каждого изменения в скрипте Google, вам нужно делать НОВОЕ развертывание, чтобы получить новый URL.
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5C-MtNfa6CQFEHeMnP_T4AtgMfBlwEpcV1vcWE40qIPV4Gk-1XWLTitm6bgBkM9ThcQ/exec';
+//old
+// const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5C-MtNfa6CQFEHeMnP_T4AtgMfBlwEpcV1vcWE40qIPV4Gk-1XWLTitm6bgBkM9ThcQ/exec';
+//old2
+//const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_fhbCbLDzMjNKZ90ZQIQYIhrzUphUhmbfrF46wj5aqSb70wIDyFwqP4MVBVtN_PimyA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzd1NG5cRxqyUYDS2wm_-aOZ_wIHbq5la47VhFxLLCxnjC4GfJEDRIb7icsiVn-SgbhHQ/exec';
 
 /**
  * Отправляет данные в Google Apps Script с использованием метода 'no-cors'.

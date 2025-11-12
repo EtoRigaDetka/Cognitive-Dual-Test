@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import Button from './shared/Button';
 import { UserInfo } from '../types';
 
 interface WelcomeScreenProps {
-    onStart: (userInfo: UserInfo) => void;
+    onStart: (userInfo: Omit<UserInfo, 'version'>) => void;
     content: {
         title: string;
         subtitle: string;

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Button from './shared/Button';
 
@@ -9,11 +10,22 @@ interface FinalScreenProps {
         thankYou: string;
         successDescription: string;
         submitButton: string;
+        resultsTitle: string;
+        forwardMaxLabel: string;
+        backwardMaxLabel: string;
+        quizScoreLabel: string;
+        scoreFormat: string;
     };
     errorContent: string;
+    results: {
+        forwardMax: number;
+        backwardMax: number;
+        quizCorrect: number;
+        quizTotal: number;
+    } | null;
 }
 
-const FinalScreen: React.FC<FinalScreenProps> = ({ onSubmit, content, errorContent }) => {
+const FinalScreen: React.FC<FinalScreenProps> = ({ onSubmit, content, errorContent, results }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -32,9 +44,28 @@ const FinalScreen: React.FC<FinalScreenProps> = ({ onSubmit, content, errorConte
 
     if (submitStatus === 'success') {
         return (
-            <div className="text-center bg-white p-12 rounded-lg shadow-xl animate-fade-in">
+            <div className="text-center bg-white p-12 rounded-lg shadow-xl animate-fade-in w-full max-w-2xl">
                 <h1 className="text-4xl font-bold text-green-600 mb-4">{content.thankYou}</h1>
-                <p className="text-slate-600 text-lg">{content.successDescription}</p>
+                <p className="text-slate-600 text-lg mb-8">{content.successDescription}</p>
+                {results && (
+                    <div className="mt-8 text-left bg-slate-50 p-6 rounded-lg border">
+                        <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">{content.resultsTitle}</h2>
+                        <div className="space-y-4">
+                            <div className="flex justify-between items-center text-lg p-3 bg-white rounded-md shadow-sm">
+                                <span className="font-medium text-slate-600">{content.forwardMaxLabel}:</span>
+                                <span className="font-bold text-blue-600 text-2xl">{results.forwardMax}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-lg p-3 bg-white rounded-md shadow-sm">
+                                <span className="font-medium text-slate-600">{content.backwardMaxLabel}:</span>
+                                <span className="font-bold text-blue-600 text-2xl">{results.backwardMax}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-lg p-3 bg-white rounded-md shadow-sm">
+                                <span className="font-medium text-slate-600">{content.quizScoreLabel}:</span>
+                                <span className="font-bold text-blue-600 text-2xl">{results.quizCorrect} {content.scoreFormat} {results.quizTotal}</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         )
     }

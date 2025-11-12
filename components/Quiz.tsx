@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { QuizAnswer } from '../types';
 import { QUIZ_DATA } from '../constants';
@@ -15,9 +16,10 @@ interface QuizProps {
     };
     commonContent: any;
     language: Language;
+    version: 'v1' | 'v2';
 }
 
-const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, commonContent, language }) => {
+const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, commonContent, language, version }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [answers, setAnswers] = useState<QuizAnswer[]>([]);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -31,10 +33,12 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
     
     const handleAnswerSelect = (index: number) => {
         setSelectedAnswer(index);
-        const feedback = currentQuestion.options[lang][index].feedback;
-        if (feedback) {
-            setFeedbackText(feedback);
-            setShowFeedbackModal(true);
+        if (version === 'v2') {
+            const feedback = currentQuestion.options[lang][index].feedback;
+            if (feedback) {
+                setFeedbackText(feedback);
+                setShowFeedbackModal(true);
+            }
         }
     };
 
@@ -44,11 +48,14 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
             return;
         }
 
+        const isCorrect = selectedAnswer === (currentQuestion as any).correctAnswerIndex;
+
         const newAnswer: QuizAnswer = {
             imageNr: imageIndex + 1,
             questionNr: currentQuestionIndex + 1,
             answer: selectedAnswer + 1,
             confidence: selectedConfidence + 1,
+            correct: isCorrect,
         };
         const updatedAnswers = [...answers, newAnswer];
         setAnswers(updatedAnswers);
@@ -76,14 +83,15 @@ const Quiz: React.FC<QuizProps> = ({ imageIndex, onQuizComplete, content, common
                 </div>
             )}
             <div className="text-right text-slate-500 mb-6">{content.questionProgress} {currentQuestionIndex + 1} {content.of} {questionsForImage.length}</div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 min-h-[56px] flex items-center">{currentQuestion[lang]}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 min-h-[56px] flex items-center">{(currentQuestion as any)[lang]}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 {currentQuestion.options[lang].map((option, index) => (
                     <button 
                         key={index}
                         onClick={() => handleAnswerSelect(index)}
-                        className={`p-4 rounded-lg border-2 text-left transition-all transform hover:scale-105 text-lg ${selectedAnswer === index ? 'bg-blue-600 text-white border-blue-600 ring-2 ring-blue-300' : 'bg-white text-slate-700 hover:bg-blue-50 border-slate-300'}`}
+                        disabled={selectedAnswer !== null}
+                        className={`p-4 rounded-lg border-2 text-left transition-all text-lg ${selectedAnswer === null ? 'transform hover:scale-105' : 'cursor-not-allowed'} ${selectedAnswer === index ? 'bg-blue-600 text-white border-blue-600 ring-2 ring-blue-300' : `bg-white text-slate-700 border-slate-300 ${selectedAnswer === null ? 'hover:bg-blue-50' : 'opacity-50'}`}`}
                     >
                         {option.text}
                     </button>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { QuizAnswer, Language } from '../types';
 import { IMAGES, QUIZ_DATA } from '../constants';
@@ -21,6 +22,7 @@ interface MemoryTestProps {
     };
     commonContent: any;
     language: Language;
+    version: 'v1' | 'v2';
 }
 
 const ImageDisplay: React.FC<{ imageUrl: string, duration: number, onTimeUp: () => void, content: any, language: Language }> = ({ imageUrl, duration, onTimeUp, content, language }) => {
@@ -69,7 +71,7 @@ const ImageDisplay: React.FC<{ imageUrl: string, duration: number, onTimeUp: () 
     );
 };
 
-const MemoryTest: React.FC<MemoryTestProps> = ({ onComplete, content, commonContent, language }) => {
+const MemoryTest: React.FC<MemoryTestProps> = ({ onComplete, content, commonContent, language, version }) => {
     const [phase, setPhase] = useState<MemoryPhase>('instruction');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [allQuizAnswers, setAllQuizAnswers] = useState<QuizAnswer[]>([]);
@@ -107,7 +109,7 @@ const MemoryTest: React.FC<MemoryTestProps> = ({ onComplete, content, commonCont
             case 'image':
                 return <ImageDisplay imageUrl={IMAGES[currentImageIndex].url} duration={1} onTimeUp={handleTimeUp} content={content} language={language} />;
             case 'quiz':
-                return <Quiz imageIndex={currentImageIndex} onQuizComplete={handleQuizComplete} content={content} commonContent={commonContent} language={language} />;
+                return <Quiz imageIndex={currentImageIndex} onQuizComplete={handleQuizComplete} content={content} commonContent={commonContent} language={language} version={version} />;
         }
     };
     
