@@ -7,7 +7,7 @@ import DigitSpanTest from './components/DigitSpanTest';
 import MemoryTest from './components/MemoryTest';
 import FinalScreen from './components/FinalScreen';
 import LanguageSwitcher from './components/LanguageSwitcher';
-import { saveResults } from './services/apiService';
+import { saveResults } from './apiService';
 import TestProgress from './components/TestProgress';
 
 const App: React.FC = () => {
